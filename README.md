@@ -15,8 +15,9 @@
 偉人の考えや思想を学び  
 道を示し、漠然とした不安を取り除けるようなサイトを目指す。  
 簡易版twitter　+　Wikipedia　のような完成イメージです。  
-twitter:https://twitter.com/?lang=ja
-wikipedia:https://ja.wikipedia.org/wiki/
+twitter:https://twitter.com/?lang=ja  
+wikipedia:https://ja.wikipedia.org/wiki/  
+
 ### テーマを選んだ理由
 
 人間なら少なからずある悩みや葛藤、  
