@@ -13,7 +13,7 @@
 
 このサイトではフォロー・フォロワー機能を実装し、  
 ユーザー間で投稿への「いいね」や「コメント」を可能にしていきます。 
-Railsでしか実現できないWebアプリケーションにしていきます。 
+Railsでしか実現できないWebアプリケーションにしていきます。  
 イメージはtwitter + wikipediaのようなサイトです。  
 twitter:https://twitter.com/?lang=ja  
 wikipedia:https://ja.wikipedia.org/wiki/  
