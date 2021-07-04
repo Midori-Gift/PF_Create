@@ -1,0 +1,2 @@
+class GenresRelationship < ApplicationRecord
+end
