@@ -1,4 +1,4 @@
-# The way of Great  
+# The way of Great.  
 
 ## サイト概要
 
