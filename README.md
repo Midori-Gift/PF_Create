@@ -46,8 +46,12 @@ wikipedia:https://ja.wikipedia.org/wiki/
 
 ※下記を随時作成  
 ・UI フロー:  
-  https://drive.google.com/drive/folders/1dpUi9-YjQYAaAtCn-WAp3kN9Pi5DMFJ9?usp=sharing ※手書きです。  
-・ER 図 
+  https://drive.google.com/drive/folders/1dpUi9-YjQYAaAtCn-WAp3kN9Pi5DMFJ9?usp=sharing  
+  
+  ※手書きです。  
+  
+・ER 図  
+
 ・テーブル定義書:  
   https://docs.google.com/spreadsheets/d/1P1F0He2v1xRp11q9aJNNUmWC2K9revX4jw9LN44yG1c/edit?usp=sharing  
   
