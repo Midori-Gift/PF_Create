@@ -69,7 +69,7 @@ https://docs.google.com/spreadsheets/d/1uJiP9K4J5ki75B7jE0g9pBLbPRaEUsJERFRV90Wr
 - JS ライブラリ：jQuery 
 - IDE：Cloud9  
 
-## 使用素材
+## 使用素材 
 
 ※現時点ではありませんが随時追加されていく可能性があります。  
   偉人の画像をお借りするかもしれません。 
