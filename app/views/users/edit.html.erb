@@ -1,2 +1,27 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>ユーザー情報編集</h2>
+            <%= form_with model: @user, local: true do |f| %>
+            <table class="table table-borderless mt-4">
+                <tr>
+                    <td>プロフィール画像</td>
+                    <td><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></td>
+                </tr>
+                <tr>
+                    <td>ユーザーネーム</td>
+                    <td><%= f.text_field :name, class:"form-control"%></td>
+                </tr>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><%= f.text_field :email, class:"form-control"%></td>
+                </tr>
+                <tr>
+                    <td><%= link_to "退会", user_unsubscribe_path, class:"btn btn-outline-secondary" %></td>
+                    <td><%= f.submit "編集を保存", class:"btn btn-outline-success" %></td>
+                </tr>
+            </table>
+            <% end %>
+        </div>
+    </div>
+</div>

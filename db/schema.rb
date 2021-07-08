@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_04_015012) do
+ActiveRecord::Schema.define(version: 2021_07_07_101213) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "grateman_id", null: false
+    t.integer "greatman_id", null: false
     t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,27 +27,15 @@ ActiveRecord::Schema.define(version: 2021_07_04_015012) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "genres_relationships", force: :cascade do |t|
-    t.integer "grateman_id", null: false
-    t.integer "genre_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "gratemen", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "name", null: false
-    t.text "topic", null: false
-    t.string "recommend", null: false
-    t.string "image_id", null: false
-    t.string "head", null: false
-    t.string "word", null: false
+  create_table "greatmen", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tag_id"
+    t.string "name"
+    t.text "topic"
+    t.string "recommend"
+    t.string "image_id"
+    t.string "head"
+    t.string "word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +43,19 @@ ActiveRecord::Schema.define(version: 2021_07_04_015012) do
   create_table "relationships", force: :cascade do |t|
     t.integer "following_id", null: false
     t.integer "follower_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_relationships", force: :cascade do |t|
+    t.integer "greateman_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_07_04_015012) do
     t.datetime "remember_created_at"
     t.string "name"
     t.boolean "is_delete", default: false, null: false
+    t.string "profile_image_id"
     t.integer "admin", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

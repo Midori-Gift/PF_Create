@@ -1,2 +1,0 @@
-class Grateman < ApplicationRecord
-end

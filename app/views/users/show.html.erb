@@ -1,2 +1,32 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="mt-4">マイページ</h2>
+        <div class="maypage-body col-md-7 mt-4 mr-5">
+          <table class="table-borderless">
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"Unkown_account.jpg" %></td>
+            <td><%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary ml-5" %></td>
+          </table>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>ユーザーネーム <strong>:</strong></td>
+                <td class="ml-5"><%= @user.name %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス<strong>:</strong></td>
+                <td class="ml-5"><%= @user.email %></td>
+              </tr>
+              <tr>
+                <td>投稿一覧</td><!--ここはリンク予定-->
+              </tr>
+              <tr>
+                <td>いいね</td>
+                <td><%=%></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
