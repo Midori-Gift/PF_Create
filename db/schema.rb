@@ -10,34 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_101213) do
+ActiveRecord::Schema.define(version: 2021_07_10_070508) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "greatman_id", null: false
+    t.integer "user_id"
+    t.integer "great_id"
     t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["great_id"], name: "index_comments_on_great_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "grateman_id", null: false
+    t.integer "user_id"
+    t.integer "great_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["great_id"], name: "index_favorites_on_great_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "greatmen", force: :cascade do |t|
+  create_table "greats", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "topic", null: false
+    t.string "recommend", null: false
+    t.string "great_image_id"
+    t.string "head", null: false
+    t.string "word", null: false
     t.integer "user_id"
     t.integer "tag_id"
-    t.string "name"
-    t.text "topic"
-    t.string "recommend"
-    t.string "image_id"
-    t.string "head"
-    t.string "word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_greats_on_tag_id"
+    t.index ["user_id"], name: "index_greats_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -48,14 +54,17 @@ ActiveRecord::Schema.define(version: 2021_07_07_101213) do
   end
 
   create_table "tag_relationships", force: :cascade do |t|
-    t.integer "greateman_id"
+    t.integer "great_id"
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["great_id", "tag_id"], name: "index_tag_relationships_on_great_id_and_tag_id", unique: true
+    t.index ["great_id"], name: "index_tag_relationships_on_great_id"
+    t.index ["tag_id"], name: "index_tag_relationships_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -36,14 +36,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
 
-    resources :greatmen, only: [:index, :edit, :update, :destroy]
+    resources :greats, only: [:index, :edit, :update, :destroy]
 
   end
 
-  resources :greatmen, only: [:index, :create, :new, :show, :edit, :update]
+  resources :greats
 
   resources :favorites, only: [:index, :create, :destroy]
-
   resources :inquery, only: [:index, :confirm, :thanks]
 
   get 'inquery/confirm' => 'inquery#confirm'

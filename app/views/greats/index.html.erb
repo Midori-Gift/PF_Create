@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <% @greats.each do |great| %>
+        <table class="table table-borderless mt-5">
+          <thead>
+            <tr>
+              <th></th>
+              <th>偉人名</th>
+              <th>ジャンル</th>
+              <th>見出し</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= attachment_image_tag great, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+              <td><%= great.name %></td>
+                <td>
+                  <% great.tags.each do |tag| %>
+                    <%= tag.name %>
+                  <% end %>
+                </td>
+              <td><%= great.head %></td>
+              <td>♡</td><!--いいねボタン予定-->
+             </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

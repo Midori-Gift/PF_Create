@@ -1,4 +1,7 @@
 class TagRelationship < ApplicationRecord
-  belongs_to :greatman
+  belongs_to :great
   belongs_to :tag
+
+  validates :great, presence: true
+  validates :tag, presence: true
 end

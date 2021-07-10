@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GreatmanTest < ActiveSupport::TestCase
+class GreatTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

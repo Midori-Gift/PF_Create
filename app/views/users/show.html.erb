@@ -6,6 +6,7 @@
           <table class="table-borderless">
             <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"Unkown_account.jpg" %></td>
             <td><%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary ml-5" %></td>
+            <td><%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary "%></td>
           </table>
           <table class="table table-borderless">
             <tbody>
