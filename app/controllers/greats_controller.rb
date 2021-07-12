@@ -17,21 +17,29 @@ class GreatsController < ApplicationController
   end
 
   def index
+    @user = current_user.id
     @greats = Great.all
   end
 
   def show
     @great = Great.find(params[:id])
+    @great_comment = Comment.new
   end
 
   def edit
     @great = Great.find(params[:id])
+    @tag_list = @great.tags.pluck(:name).join(",")
   end
 
   def update
-    great = great.find(params[:id])
-    great.update(great_params)
-    redirect_to great_path(great.id)
+    @great = Great.find(params[:id])
+    tag_list = params[:great][:tag_ids].split(',')
+    if @great.update(great_params)
+      @great.save_tags(tag_list)
+      redirect_to great_path(@great.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

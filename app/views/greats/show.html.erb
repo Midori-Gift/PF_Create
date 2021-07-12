@@ -1,0 +1,94 @@
+<div class="container float-left ml-5">
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <%= attachment_image_tag @great, :great_image, :fill, 200, 200, fallback:"Unkown_account.jpg" %>
+      <div class="col-md-3 ml-5">
+        <% @great.tags.each do |tag| %>
+        <table class="table table-borderless">
+            <th><h4><%= tag.name %></h4></th>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-6 text-nowrap" >
+      <table class="table table-borderless">
+        <thead>
+        <tr>
+          <th>偉人名</th>
+          <th>いいね</th>
+          <th>名言</th>
+          <th>投稿者</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @great.name %></td>
+            <td><h3>♡</h3></td>
+            <td><%= @great.word %></td>
+            <td><h3><%= link_to @great.user.name, user_path(@great.user.id) %></h3></td>
+            <td><%= link_to "編集", edit_great_path(@great.id), class:"btn btn-outline-secondary"%></td>
+            <!--<tr>-->
+            <!--  <td></td>-->
+            <!--  <td></td>-->
+            <!--  <td><= @great.word %></td>-->
+            <!--</tr>-->
+          </tr>
+        </tbody>
+        <tr>
+          <th>どんな人におすすめか？</th>
+        </tr>
+        <tr>
+          <td class="text-wrap"><%= @great.recommend %></td>
+        </tr>
+      </table>
+      </div>
+      <table class="table table-borderless ">
+        <thead>
+          <tr>
+            <th>偉業や功績</th>
+          </tr>
+        </thead>
+        <tbody>
+          <div class="col-md-10">
+            <td><%= @great.topic %></td>
+          </div>
+        </tbody>
+      </table>
+      <div class="col-md-6">
+        <% @great.comments.each do |great_comment| %>
+          <div class="col-md-7 mt-1 mb-4">
+            <table class="table table-borderless">
+              <tr>
+                <td><%= attachment_image_tag great_comment.user, :profile_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+                <td><%= great_comment.user.name %></br></td>
+              </tr>
+              <tr>
+                <td><%= great_comment.created_at.strftime('%Y/%m/%d') %></td>
+              </tr>
+              <tr>
+                <td><div class="w-100"><%= great_comment.comment %></div></td>
+              </tr>
+              <tr>
+                <td>
+                  <% if great_comment.user == current_user %>
+                    <div class="comment-delete">
+                      <%= link_to "削除する", great_comment_path(great_comment.great, great_comment), method: :delete, class:"btn btn-outline-danger" %>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+          </div>
+        <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= form_with(model:[@great, @great_comment],local:true) do |f| %>
+            <%= f.text_area :comment, class:"form-control" %>
+            <div class="col-md-4 mt-4 mr-4 float-right">
+              <%= f.submit "コメントする", class:"btn btn-outline-secondary" %>
+            </div>
+          <% end %>
+      </div>
+  </div>
+</div>

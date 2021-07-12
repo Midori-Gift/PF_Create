@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'favorites/create'
+  # get 'favorites/destroy'
+  # get 'comments/create'
+  # get 'comments/destroy'
   # get 'homes/top'
   # get 'homes/about'
   # get 'greatmen/new'
@@ -23,15 +27,24 @@ Rails.application.routes.draw do
 
   get 'homes/about' => 'homes#about'
 
-  resources :users, only: [:index, :show, :edit, :update, :unsubscribe, :hide]
+  resources :users, only: [:index, :show, :edit, :update,]
+
+  get 'users/:id/post' => 'users#posts', as: 'user_post'
 
   get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
   get 'user/:id/hide' => 'users#hide', as: 'user_hide'
   patch 'users/:id/hide' => 'users#hide'
   put 'users/:id/hide' => 'users#hide'
 
-    post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
-    post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+  # post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+  # post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+    resources :relationships, only: [:create, :destroy]
+  end
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
@@ -40,9 +53,12 @@ Rails.application.routes.draw do
 
   end
 
-  resources :greats
+  resources :greats do
+    resources :comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
+  end
 
-  resources :favorites, only: [:index, :create, :destroy]
+
   resources :inquery, only: [:index, :confirm, :thanks]
 
   get 'inquery/confirm' => 'inquery#confirm'

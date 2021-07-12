@@ -12,6 +12,21 @@ class UsersController < ApplicationController
     # end
   end
 
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+  end
+
+  def posts
+    @user = User.find(params[:id])
+    @greats = @user.greats
+  end
+
   def unsubscribe
     @user = User.find(params[:id])
   end
@@ -25,7 +40,7 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    
+
     user.update(user_params)
     redirect_to user_path(user.id)
   end
