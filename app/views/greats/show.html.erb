@@ -27,7 +27,11 @@
             <td><h3>♡</h3></td>
             <td><%= @great.word %></td>
             <td><h3><%= link_to @great.user.name, user_path(@great.user.id) %></h3></td>
-            <td><%= link_to "編集", edit_great_path(@great.id), class:"btn btn-outline-secondary"%></td>
+            <td><% if current_user.admin? %>
+                  <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary" %>
+                <% else %>
+                  <%= link_to "編集", edit_great_path(@great.id), class:"btn btn-outline-secondary"%></td>
+                <% end %>
             <!--<tr>-->
             <!--  <td></td>-->
             <!--  <td></td>-->
@@ -49,10 +53,8 @@
             <th>偉業や功績</th>
           </tr>
         </thead>
-        <tbody>
-          <div class="col-md-10">
+        <tbody class="col-md-8 text-wrap" >
             <td><%= @great.topic %></td>
-          </div>
         </tbody>
       </table>
       <div class="col-md-6">

@@ -8,7 +8,7 @@
 
 User.create!(
   name: "管理者ユーザー",
-  email: "admin@grateman.jp",
+  email: "admin@greats.jp",
   password: "aaaaaa",
   password_confirmation: "aaaaaa",
   admin: true)

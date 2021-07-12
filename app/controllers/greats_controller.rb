@@ -18,7 +18,7 @@ class GreatsController < ApplicationController
 
   def index
     @user = current_user.id
-    @greats = Great.all
+    @greats =  Great.where(is_release: false)
   end
 
   def show

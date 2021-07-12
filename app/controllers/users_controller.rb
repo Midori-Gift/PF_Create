@@ -1,7 +1,19 @@
 class UsersController < ApplicationController
+
+  before_action :true_user, only:[:edit]
+
   def show
     @user = User.find(params[:id])
     @greats = Great.all
+  end
+
+  def true_user
+    @user = User.find(params[:id])
+    if current_user.id == @user.id
+    elsif current_user.admin?
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
@@ -32,10 +44,19 @@ class UsersController < ApplicationController
   end
 
   def hide
+    @users = current_user
     @user = User.find(params[:id])
-    @user.update(is_delete: true)
-    reset_session
-    redirect_to root_path
+    if @user.is_delete == false
+      @user.update(is_delete: true)
+    else
+      @user.update(is_delete: false)
+    end
+    if current_user.admin?
+      redirect_to admin_users_path
+    else
+      reset_session
+      redirect_to root_path
+    end
   end
 
   def update
