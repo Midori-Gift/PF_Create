@@ -29,3 +29,5 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+.env # 7/5 デプロイを学ぼう　1章にて追加

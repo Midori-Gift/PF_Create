@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="col-md-7 mt-5 mb-5">
+        <h3>
+          <% if current_user.id == @user.id %>
+            あなたをフォロー中のユーザー
+          <% else %>
+            <%= @user.name %>をフォロー中のユーザー
+          <% end %>
+        </h3>
+      </div>
+       <% @users.each do |user| %>
+       <div class="card mt-5">
+        <table class="table table-borderless">
+            <tr>
+              <th></th>
+              <th>ユーザーネーム</th>
+              <th>投稿数</th>
+            </tr>
+            <tr>
+              <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+              <td><h4><%= user.name %></h4></td>
+              <td><h4><%= link_to user.greats.count, user_post_path(user.id) %></h4></td>
+            </tr>
+        </table>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

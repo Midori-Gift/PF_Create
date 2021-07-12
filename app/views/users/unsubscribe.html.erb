@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h2>本当に退会しますか？</h2>
+      <div class="hide-select">
+        <%= link_to "退会しない", user_path(@user.id), class:"btn btn-outline-secondary" %>
+        <% if @user.is_delete == false %>
+          <%= link_to "退会する", user_hide_path(@user.id), metod: :patch, class:"btn btn-outline-secondary" %>
+        <% else %>
+          <%= link_to "有効にする", user_hide_path(@user.id), metod: :patch, class:"btn btn-outline-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

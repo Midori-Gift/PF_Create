@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      
+      <%= form_with model: @great, local:true do |f| %>
+      <!--< @greats.each do |greats| %>-->
+       <table class="table table-borderless mt-5">
+          <tr>
+               <td><%= attachment_image_tag @great, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+              <td><%= f.attachment_field :great_image, placeholder: "イメージ" %></td>
+            </tr>
+       </table>
+      <table class="table table-borderless">
+          <tbody>
+
+            <tr>
+              <td>偉人名</td>
+              <td><%= f.text_field :name, class:"form-control" %></td>
+            </tr>
+            <div class="form-group">
+              <tr>
+                <td>ジャンルタグ</td>
+                <td><%= f.text_field :tag_ids, class:"form-control", id:'tag_ids', placeholder: "タグをつける。　複数つける場合','で区切ってください" %></td>
+              </tr>
+            </div>
+            <tr>
+              <td>見出し</td>
+              <td><%= f.text_area :head, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td>名言</td>
+              <td><%= f.text_field :word, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td>偉人紹介</td>
+              <td><%= f.text_area :topic, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td>どんな人におすすめですか？</td>
+              <td><%= f.text_area :recommend, class:"form-control" %></td>
+            </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><%= f.submit "編集を保存", class:"btn btn-outline-secondary mt-3" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+

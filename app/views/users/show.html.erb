@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+
+        <h2 class="mt-4">
+        <% if current_user.id == @user.id %>
+          マイページ
+        <% else %>
+          <%= @user.name %>さんのページ
+        <% end %>
+        </h2>
+        <div class="maypage-body col-md-7 mt-4 mr-5">
+          <table class="table-borderless">
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"Unkown_account.jpg" %></td>
+            <td>
+              <% if current_user.id == @user.id %>
+                <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary ml-5" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary "%>
+            <div class="follower">
+              <%= link_to followers_user_path(@user.id) do %>
+                <h5 style="color: black;">フォロワー<%= @user.followers.count %>人</h5>
+              <% end %>
+            </div>
+            <div class="follow">
+              <%= link_to following_user_path(@user.id) do %>
+              <h5 style="color: black;">フォロー<%= @user.following.count %>人</h5>
+            <% end %>
+            </div>
+            <div>
+              <%= render "users/follow/follow_btn" %>
+            </div>
+            </td>
+          </table>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>ユーザーネーム <strong>:</strong></td>
+                <td class="ml-5"><%= @user.name %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス<strong>:</strong></td>
+                <td class="ml-5"><%= @user.email %></td>
+              </tr>
+              <tr>
+                <td>投稿数</td>
+                <td><h4><%= link_to @user.greats.count, user_post_path(@user.id) %>件</h4></td>
+              </tr>
+              <tr>
+                <td>いいね</td>
+                <td><%=%></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

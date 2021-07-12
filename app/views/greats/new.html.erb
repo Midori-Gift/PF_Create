@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <%= form_with model: @great, url:'/greats', local:true do |f| %>
+      <table class="table table-borderless mt-5">
+          <tbody>
+            <tr>
+              <td>イメージ</td>
+              <td><%= f.attachment_field :great_image, placeholder: "イメージ" %></td>
+            </tr>
+            <tr>
+              <td>偉人名</td>
+              <td><%= f.text_field :name, class:"form-control" %></td>
+            </tr>
+            <div class="form-group">
+              <tr>
+                <td>ジャンルタグ</td>
+                <td><%= f.text_field :tag_ids, class:"form-control", id:'tag_ids', placeholder: "タグをつける。　複数つける場合','で区切ってください" %></td>
+              </tr>
+            </div>
+            <tr>
+              <td>見出し</td>
+              <td><%= f.text_area :head, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td>名言</td>
+              <td><%= f.text_field :word, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td>偉人紹介</td>
+              <td><%= f.text_area :topic, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td>どんな人におすすめですか？</td>
+              <td><%= f.text_area :recommend, class:"form-control" %></td>
+            </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><%= f.submit "投稿する", class:"btn btn-outline-secondary mt-3" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+
