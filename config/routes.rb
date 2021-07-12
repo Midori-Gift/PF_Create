@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index]
-    resources :greats, only: [:edit, :update]
+    resources :greats, only: [:edit, :update, :index]
   end
 
   get 'admin/greats/:id/release' => 'admin/greats#release', as: 'greats_release'

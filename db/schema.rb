@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_100914) do
+ActiveRecord::Schema.define(version: 2021_07_10_070508) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_100914) do
     t.string "great_image_id"
     t.string "head", null: false
     t.string "word", null: false
-    t.boolean "is_release", default: false, null: false
+    t.boolean "is_release", default: true, null: false
     t.integer "user_id"
     t.integer "tag_id"
     t.datetime "created_at", null: false

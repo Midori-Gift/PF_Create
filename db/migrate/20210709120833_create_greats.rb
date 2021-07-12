@@ -7,7 +7,7 @@ class CreateGreats < ActiveRecord::Migration[5.2]
       t.string :great_image_id
       t.string :head, null: false
       t.string :word, null: false
-      t.boolean :is_release, default: false, null: false
+      t.boolean :is_release, default: true, null: false
       t.references :user
       t.references :tag
 

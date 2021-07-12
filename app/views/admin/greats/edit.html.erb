@@ -39,10 +39,10 @@
               <td><%= f.text_area :recommend, class:"form-control" %></td>
             </tr>
             <tr>
-              <% if @great.is_release == false %>
+              <% if @great.is_release == true %>
               <%= link_to "公開停止", greats_release_path(@great.id), metod: :patch, class:"btn btn-outline-danger" %>
               <% else %>
-              <%= link_to "有効にする", greats_release_path(@great.id), metod: :patch, class:"btn btn-outline-success" %>
+              <%= link_to "公開中に", greats_release_path(@great.id), metod: :patch, class:"btn btn-outline-success" %>
               <% end %>
 
 

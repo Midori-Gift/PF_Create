@@ -1,4 +1,9 @@
 class Admin::GreatsController < ApplicationController
+  
+  def index
+    @greats = Great.all
+  end
+  
   def edit
     @great = Great.find(params[:id])
   end
@@ -14,10 +19,10 @@ class Admin::GreatsController < ApplicationController
 
   def release
     @great = Great.find(params[:id])
-    if @great.is_release == false
-      @great.update(is_release: true)
-    else
+    if @great.is_release == true
       @great.update(is_release: false)
+    else
+      @great.update(is_release: true)
     end
       redirect_to request.referer
   end
