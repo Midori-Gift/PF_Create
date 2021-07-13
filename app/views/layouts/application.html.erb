@@ -15,14 +15,16 @@
     <div class="container">
       <%= link_to "The way of Grate.", root_path, class:"navbar-brand"%>
         <div class="User-name text-light navbar-brand ml-5">
-          <%= current_user.name %>さん
+          <% if user_signed_in? %>
+            <%= current_user.name %>さん
+          <% end %>
         </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        <% if current_user.admin?%>
+        <% if user_signed_in? && current_user.admin?%>
           <li><%= link_to "Home", user_path(current_user.id), class:"fas fa-home nav-link text-light"%></li>
           <li><%= link_to "About", homes_about_path, class:"fas fa-link nav-link text-light"%></li>
           <li><%= link_to "Greats", admin_greats_path, class:"fas fa-road nav-link text-light"%></li>

@@ -19,18 +19,16 @@
             </td>
             <td>
               <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary "%>
-            <div class="follower">
-              <%= link_to followers_user_path(@user.id) do %>
-                <h5 style="color: black;">フォロワー<%= @user.followers.count %>人</h5>
-              <% end %>
+            <div class="follower-count">
+              <%= render "users/follow/count", user: @user %>
             </div>
-            <div class="follow">
+            <div id="follow-count">
               <%= link_to following_user_path(@user.id) do %>
-              <h5 style="color: black;">フォロー<%= @user.following.count %>人</h5>
+              <h5 style="color: black;">フォロー<%= @user.followings.count %>人</h5>
             <% end %>
             </div>
             <div>
-              <%= render "users/follow/follow_btn" %>
+              <%= render "users/follow/follow_btn", user: @user, users: @users %>
             </div>
             </td>
           </table>

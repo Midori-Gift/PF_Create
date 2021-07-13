@@ -23,7 +23,8 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
     end
-    resources :relationships, only: [:create, :destroy]
+    delete "relationships" => 'relationships#destroy'
+    resources :relationships, only: [:create]
   end
 
   namespace :admin do

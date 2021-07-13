@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def posts
     @user = User.find(params[:id])
-    @greats = @user.greats
+    @greats =  Great.where(is_release: true)
   end
 
   def unsubscribe
