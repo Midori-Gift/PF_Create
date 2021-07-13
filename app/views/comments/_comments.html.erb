@@ -1,0 +1,32 @@
+
+
+
+  <% great_comments.each do |great_comment| %>
+    <div class="col-md-7 mt-1 mb-4">
+        <table class="table table-borderless">
+  <tr>
+      <td><%= attachment_image_tag great_comment.user, :profile_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+      <td><%= great_comment.user.name %></br></td>
+  </tr>
+      <tr>
+        <td><%= great_comment.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+        <td><div class="w-100"><%= great_comment.comment %></div></td>
+      </tr>
+  <tr>
+    <td>
+      <% if great_comment.user == current_user %>
+      <div class="comment-delete">
+        <%= link_to "削除する", great_comment_path(great_comment.great, great_comment), method: :delete, remote: true, class:"btn btn-outline-danger" %>
+      </div>
+      <% end %>
+    </td>
+  </tr>
+    </table>
+  </div>
+  <% end %>
+
+  <div class="col-md-8 comment-form">
+    <%= render 'comments/form', great: great, great_comment: great_comment %>
+  </div>

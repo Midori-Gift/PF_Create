@@ -1,0 +1,9 @@
+
+  <%= form_with(model:[great, great_comment]) do |f| %>
+  <div id="textarea">
+    <%= f.text_area :comment, class:"form-control" %>
+  </div>
+    <div class="col-md-4 mt-4 mr-4 float-right">
+      <%= f.submit "コメントする", class:"btn btn-outline-secondary" %>
+    </div>
+  <% end %>
