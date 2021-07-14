@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      
+
       <%= form_with model: @great, local:true do |f| %>
       <!--< @greats.each do |greats| %>-->
        <table class="table table-borderless mt-5">
@@ -20,7 +20,7 @@
             <div class="form-group">
               <tr>
                 <td>ジャンルタグ</td>
-                <td><%= f.text_field :tag_ids, class:"form-control", id:'tag_ids', placeholder: "タグをつける。　複数つける場合','で区切ってください" %></td>
+                <td><%= f.text_field :tag_ids, class:"form-control", id:'tag_ids', placeholder: "タグをつける。　複数つける場合','で区切ってください", value: @tag_list %></td>
               </tr>
             </div>
             <tr>
