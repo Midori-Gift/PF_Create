@@ -13,11 +13,13 @@ Rails.application.routes.draw do
 
   get 'users/:id/post' => 'users#posts', as: 'user_post'
 
-  get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
+# ユーザーの倫理削除用ルーティング一覧
 
+  get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
   get 'user/:id/hide' => 'users#hide', as: 'user_hide'
   patch 'users/:id/hide' => 'users#hide'
   put 'users/:id/hide' => 'users#hide'
+
 
   resources :users do
     member do
@@ -38,10 +40,14 @@ Rails.application.routes.draw do
   resources :greats do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
 
-
   resources :inquery, only: [:index, :confirm, :thanks]
+
+  #お問い合わせ機能用ルーティング
 
   get 'inquery/confirm' => 'inquery#confirm'
   get 'inquery/thanks' => 'inquery#thanks'

@@ -20,6 +20,15 @@ class GreatsController < ApplicationController
     end
   end
 
+  def search
+    @greats = Great.all
+    @great = @greats.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def index
     # @user = current_user.id
     @greats = params[:tag_id].present? ? Tag.find(params[:tag_id]).great : Great.where(is_release: true)
