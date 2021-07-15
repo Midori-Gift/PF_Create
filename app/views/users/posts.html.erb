@@ -24,9 +24,9 @@
               <td><%= greats.head %></td>
               <td><h3>
                 <% if greats.favorited_by?(current_user)%>
-                  <%= link_to "♡", great_favorites_path(greats.id), method: :delete, class:"" %><%= greats.favorites.count %>
+                  <%= link_to "♡", great_favorites_path(greats.id), method: :delete, remote: true %><%= greats.favorites.count %>
                 <% else %>
-                  <%= link_to "♡", great_favorites_path(greats.id), method: :post %><%= greats.favorites.count %>
+                  <%= link_to "♡", great_favorites_path(greats.id), method: :post, remote: true %><%= greats.favorites.count %>
                 <% end %>
               </h3></td><!--いいねボタン予定-->
               </tr>

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class Admin::GreatsController < ApplicationController
-  
   def index
     @greats = Great.all
   end
-  
+
   def edit
     @great = Great.find(params[:id])
   end
@@ -24,9 +25,8 @@ class Admin::GreatsController < ApplicationController
     else
       @great.update(is_release: true)
     end
-      redirect_to request.referer
+    redirect_to request.referer
   end
-
 
   private
 

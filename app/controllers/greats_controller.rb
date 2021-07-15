@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class GreatsController < ApplicationController
   # before_action: :only[:]
-  
+
   def new
     @great = Great.new
   end
@@ -9,7 +11,7 @@ class GreatsController < ApplicationController
     @great = Great.new(great_params)
     @great.user_id = current_user.id
     tag_list = params[:great][:tag_ids].split(',')
-    #debugger
+    # debugger
     if @great.save
       @great.save_tags(tag_list)
       redirect_to great_path(@great.id)
@@ -20,8 +22,8 @@ class GreatsController < ApplicationController
 
   def index
     # @user = current_user.id
-    @greats = Great.where(is_release: true)
-    @great_rank = @greats.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @greats = params[:tag_id].present? ? Tag.find(params[:tag_id]).great : Great.where(is_release: true)
+    @great_rank = @greats.includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size }
   end
 
   def show
@@ -31,7 +33,7 @@ class GreatsController < ApplicationController
 
   def edit
     @great = Great.find(params[:id])
-    @tag_list = @great.tags.pluck(:name).join(",")
+    @tag_list = @great.tags.pluck(:name).join(',')
   end
 
   def update
@@ -47,7 +49,7 @@ class GreatsController < ApplicationController
 
   def destroy
     great = great.find(paramas[:id])
-    great.destroy
+    great.destroy!
     redirect_to greats_path
   end
 

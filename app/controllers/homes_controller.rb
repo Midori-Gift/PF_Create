@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HomesController < ApplicationController
   def top
     # @user = current_user.id
@@ -6,6 +8,5 @@ class HomesController < ApplicationController
     @great_rank = Great.find(Favorite.group(:great_id).order('count(great_id) desc').limit(3).pluck(:great_id))
   end
 
-  def about
-  end
+  def about; end
 end

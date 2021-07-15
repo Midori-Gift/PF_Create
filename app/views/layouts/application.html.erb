@@ -19,6 +19,10 @@
             <%= current_user.name %>さん
           <% end %>
         </div>
+        <%= form_with url: greats_path, method: :get, class:"" do %>
+          <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+            {prompt: 'タグで検索',class:'form-control', onchange: 'submit(this.form);'}%>
+          <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
