@@ -1,4 +1,6 @@
 class GreatsController < ApplicationController
+  # before_action: :only[:]
+  
   def new
     @great = Great.new
   end
@@ -17,7 +19,7 @@ class GreatsController < ApplicationController
   end
 
   def index
-    @user = current_user.id
+    # @user = current_user.id
     @greats = Great.where(is_release: true)
     @great_rank = @greats.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
   end
