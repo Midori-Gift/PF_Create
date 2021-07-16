@@ -28,19 +28,23 @@
               <td><%= greats.head %></td>
               <td>
                 <h3>
-                  <% if greats.favorited_by?(current_user) %>
-                    <%= link_to "♡", great_favorites_path(greats.id), method: :delete, class:"", remote: true %><%= greats.favorites.count %>
-                  <% else %>
-                    <%= link_to "♡", great_favorites_path(greats.id), method: :post, remote: true %><%= greats.favorites.count %>
+                  <% if user_signed_in? %>
+                    <% if greats.favorited_by?(current_user) %>
+                      <%= link_to "♡", great_favorites_path(greats.id), method: :delete, class:"", remote: true %><%= greats.favorites.count %>
+                    <% else %>
+                      <%= link_to "♡", great_favorites_path(greats.id), method: :post, remote: true %><%= greats.favorites.count %>
+                    <% end %>
                   <% end %>
                 </h3>
               </td>
               <td>
-                <% if current_user.admin? %>
-                  <% if greats.is_release == true %>
-                   <h5 class="text-success">公開</h5>
-                  <% else %>
-                    <h5>非公開</h5>
+                <% if user_signed_in? %>
+                  <% if current_user.admin? %>
+                    <% if greats.is_release == true %>
+                     <h5 class="text-success">公開</h5>
+                    <% else %>
+                      <h5>非公開</h5>
+                    <% end %>
                   <% end %>
                 <% end %>
               </td>

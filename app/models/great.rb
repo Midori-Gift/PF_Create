@@ -34,11 +34,11 @@ class Great < ApplicationRecord
       great_tag = Tag.find_or_create_by!(name: new_name)
       tags << great_tag
     end
-  
+  end
+
     def self.search(search)
     return Great.all() unless search
     Great.where('name LIKE(?)', "%#{search}%")
-  end  
-  
-  end
+    end
+
 end

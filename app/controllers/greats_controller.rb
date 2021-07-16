@@ -21,8 +21,7 @@ class GreatsController < ApplicationController
   end
 
   def search
-    @greats = Great.all
-    @great = @greats.search(params[:keyword])
+    @great = Great.search(params[:keyword])
     respond_to do |format|
       format.html
       format.json

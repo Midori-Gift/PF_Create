@@ -25,15 +25,20 @@
           <tr>
             <td><%= @great.name %></td>
             <td>
+               <% if user_signed_in? %>
               <h3><%= render 'favorites/favorite_btn', great: @great %></h3>
+              <% end %>
             </td>
             <td><%= @great.word %></td>
             <td><h3><%= link_to @great.user.name, user_path(@great.user.id) %></h3></td>
-            <td><% if current_user.admin? %>
+            <td>
+              <% if user_signed_in?%>
+                <% if current_user.admin? %>
                   <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary" %>
                 <% else %>
                   <%= link_to "編集", edit_great_path(@great.id), class:"btn btn-outline-secondary"%></td>
                 <% end %>
+              <% end %>
             <!--<tr>-->
             <!--  <td></td>-->
             <!--  <td></td>-->
@@ -60,7 +65,9 @@
         </tbody>
       </table>
       <div class="col-md-6" id="comments">
-        <%= render 'comments/comments', great_comments: @great.comments, great: @great, great_comment:  @great_comment %>
+        <% if user_signed_in? %>
+          <%= render 'comments/comments', great_comments: @great.comments, great: @great, great_comment:  @great_comment %>
+        <% end %>
       </div>
 
 </div>

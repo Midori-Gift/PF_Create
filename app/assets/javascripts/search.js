@@ -1,3 +1,4 @@
+<script>
 $(function() {
   $(".search-input").on("keyup", function() {
     var input = $(".search-input").val();
@@ -67,4 +68,4 @@ var search_list = $(".contents.row");
     var html = `<div class='name'>${ msg }</div>`
     search_list.append(html);
   }
-
+</script>
