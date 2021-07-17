@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TagRelationship < ApplicationRecord
   belongs_to :great
   belongs_to :tag

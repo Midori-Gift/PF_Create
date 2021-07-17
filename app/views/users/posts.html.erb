@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-8">
-      <% @greats.each do |greats| %>
+      <% @user.greats.each do |greats| %>
         <table class="table table-borderless">
           <thead>
             <tr>
@@ -13,6 +13,7 @@
             </tr>
           </thead>
           <tbody>
+            <% if greats.is_release == true %>
             <tr>
               <td><%= attachment_image_tag greats, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
               <td><%= link_to greats.name, great_path(greats.id) %></td>
@@ -23,13 +24,16 @@
                 </td>
               <td><%= greats.head %></td>
               <td><h3>
-                <% if greats.favorited_by?(current_user)%>
-                  <%= link_to "♡", great_favorites_path(greats.id), method: :delete, class:"" %><%= greats.favorites.count %>
-                <% else %>
-                  <%= link_to "♡", great_favorites_path(greats.id), method: :post %><%= greats.favorites.count %>
+                <% if user_signed_in? %>
+                  <% if greats.favorited_by?(current_user)%>
+                    <%= link_to "♡", great_favorites_path(greats.id), method: :delete, remote: true %><%= greats.favorites.count %>
+                  <% else %>
+                    <%= link_to "♡", great_favorites_path(greats.id), method: :post, remote: true %><%= greats.favorites.count %>
+                  <% end %>
                 <% end %>
               </h3></td><!--いいねボタン予定-->
               </tr>
+              <% end %>
           </tbody>
         </table>
       <% end %>

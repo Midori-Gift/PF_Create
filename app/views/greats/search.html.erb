@@ -1,0 +1,36 @@
+<script>
+ var search_list = $(".contents.row");
+
+  function appendgreat(great {
+    var current_user = great.user_sign_in && great.user_sign_in.id == great.user_id ?
+                              `<li>
+                                <a href="/greats/${great.id}/edit" data-method="get" >編集</a>
+                              </li>
+                              <li>
+                                <a href="/greats/${great.id}" data-method="delete" >削除</a>
+                              </li>` : "";
+
+    var html = `<div class="content_post" style="background-image: url(${great.image});">
+                  <div class="more">
+                    <span><img src="/assets/arrow_top.png"></span>
+                    <ul class="more_list">
+                      <li>
+                        <a href="/greats/${great.id}" data-method="get" >詳細</a>
+                      </li>
+                      ${current_user}
+                    </ul>
+                  </div>
+                  <p>${great.text}</p><br>
+                  <span class="name">
+                    <a href="/users/${great.user_id}">
+                      <span>投稿者</span>${great.name}
+                    </a>
+                  </span>
+                </div>`
+    search_list.append(html);
+   }
+   function appendErrMsgToHTML(msg) {
+       var html = `<div class='name'>${ msg }</div>`
+       search_list.append(html);
+    }
+</script>

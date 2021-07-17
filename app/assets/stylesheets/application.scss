@@ -16,3 +16,18 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+// html,body {
+//   height: 100%;
+//   letter-spacing: .03rem;
+//   font-family: 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+// }
+ 
+.v-scroll {
+  position: relative;
+  overflow: scroll;
+}
+ 
+.container-fluid {
+  height: calc(100vh - 40px)
+}

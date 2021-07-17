@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'
     }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   root "homes#top"
   get 'homes/top' => 'homes#top'
   get 'homes/about' => 'homes#about'
@@ -13,11 +12,13 @@ Rails.application.routes.draw do
 
   get 'users/:id/post' => 'users#posts', as: 'user_post'
 
-  get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
+# ユーザーの倫理削除用ルーティング一覧
 
+  get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
   get 'user/:id/hide' => 'users#hide', as: 'user_hide'
   patch 'users/:id/hide' => 'users#hide'
   put 'users/:id/hide' => 'users#hide'
+
 
   resources :users do
     member do
@@ -38,12 +39,16 @@ Rails.application.routes.draw do
   resources :greats do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
 
-
-  resources :inquery, only: [:index, :confirm, :thanks]
-
-  get 'inquery/confirm' => 'inquery#confirm'
-  get 'inquery/thanks' => 'inquery#thanks'
+  #お問い合わせ機能用ルーティング
+  get 'inquiry' => 'inquiry#index', as: 'inquiry'
+  get 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  get 'inquiry/thanks' => 'inquiry#thanks'
+  post 'inquiry/thanks' => 'inquiry#thanks'
 
 end

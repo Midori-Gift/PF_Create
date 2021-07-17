@@ -1,9 +1,11 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :true_user, only:[:edit]
+class UsersController < ApplicationController
+  before_action :true_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
+    @users = @user.favorites.page(params[:page]).per(2).order('updated_at DESC')
     @greats = Great.all
   end
 
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
 
   def following
     @user = User.find(params[:id])
-    @users = @user.following
+    @users = @user.followings
   end
 
   def followers
@@ -36,7 +38,8 @@ class UsersController < ApplicationController
 
   def posts
     @user = User.find(params[:id])
-    @greats =  Great.where(is_release: true)
+    @greats = Great.where(is_release: true)
+
   end
 
   def unsubscribe
@@ -62,11 +65,12 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
 
-    user.update(user_params)
+    user.update!(user_params)
     redirect_to user_path(user.id)
   end
 
   private
+
   def user_params
     params.require(:user).permit(:profile_image, :name, :email)
   end

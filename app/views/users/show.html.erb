@@ -1,39 +1,63 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
 
         <h2 class="mt-4">
-        <% if current_user.id == @user.id %>
-          マイページ
-        <% else %>
-          <%= @user.name %>さんのページ
+        <% if user_signed_in? %>
+          <% if current_user.id == @user.id %>
+            マイページ
+          <% else %>
+            <%= @user.name %>さんのページ
+          <% end %>
         <% end %>
         </h2>
-        <div class="maypage-body col-md-7 mt-4 mr-5">
+        <div class="maypage-body col-md-8 mt-4 mr-5 text-nowrap">
           <table class="table-borderless">
-            <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"Unkown_account.jpg" %></td>
             <td>
-              <% if current_user.id == @user.id %>
-                <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary ml-5" %>
+              <% if user_signed_in? %>
+                <% if current_user.id == @user.id %>
+                  <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary ml-5" %>
+                <% end %>
               <% end %>
             </td>
+
             <td>
-              <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary "%>
-            <div class="follower-count">
-              <%= render "users/follow/count", user: @user %>
-            </div>
-            <div id="follow-count">
-              <%= link_to following_user_path(@user.id) do %>
-              <h5 style="color: black;">フォロー<%= @user.followings.count %>人</h5>
-            <% end %>
-            </div>
-            <div>
-              <%= render "users/follow/follow_btn", user: @user, users: @users %>
-            </div>
+              <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary ml-4" %>
             </td>
           </table>
-          <table class="table table-borderless">
+          <table class="table table-borderless mt-4">
+            <tr>
+              <td> <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"Unkown_account.jpg" %></td>
+              <% if current_user.id == @user.id %>
+              <td><%= link_to "お問い合わせ", inquiry_path, class:"btn btn-outline-secondary"%></td>
+              <% end %>
+            </tr>
+          <div class="follow-elements d-flex text-nowrap">
             <tbody>
+              <tr>
+               <td>
+                <div id="follow-count">
+                  <%= link_to following_user_path(@user.id) do %>
+                  <h5 style="color: black;">フォロー<%= @user.followings.count %>人</h5>
+                  <% end %>
+                </div>
+              </td>
+              <td>
+                <div class="follower-count">
+                  <%= render "users/follow/count", user: @user %>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <% if user_signed_in? %>
+                    <% if current_user.id !=  @user.id %>
+                      <%= render "users/follow/follow_btn", user: @user, users: @users %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </td>
+            </div>
+            </tr>
               <tr>
                 <td>ユーザーネーム <strong>:</strong></td>
                 <td class="ml-5"><%= @user.name %></td>
@@ -45,14 +69,14 @@
               <tr>
                 <td>投稿数</td>
                 <td><h4><%= link_to @user.greats.count, user_post_path(@user.id) %>件</h4></td>
-              </tr>
-              <tr>
-                <td>いいね</td>
-                <td><%=%></td>
-              </tr>
+
             </tbody>
           </table>
+            <p>いいねした投稿</p>
+          <div >
+            <%= render 'users/favorite' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>

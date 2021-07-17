@@ -14,9 +14,18 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <%= link_to "The way of Grate.", root_path, class:"navbar-brand"%>
-        <div class="User-name text-light navbar-brand ml-5">
+        <div class="User-name text-light navbar-brand">
           <% if user_signed_in? %>
             <%= current_user.name %>さん
+          <% end %>
+        </div>
+        <div class="word-search flex-row float-right">
+          <%= render 'greats/form' %>
+        </div>
+        <div class="tag-search">
+          <%= form_with url: greats_path, method: :get, class:"" do %>
+          <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+            {prompt: 'タグ検索',class:'form-control', onchange: 'submit(this.form);'}%>
           <% end %>
         </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
