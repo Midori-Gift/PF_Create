@@ -1,6 +1,5 @@
 <% if user_signed_in? && user != users %>
   <div id="follow_btn">
-  
     <% if current_user.following?(user) %>
       <%= render "users/follow/unfollow" %>
     <% else %>

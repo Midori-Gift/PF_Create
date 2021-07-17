@@ -45,8 +45,10 @@ Rails.application.routes.draw do
   end
 
   #お問い合わせ機能用ルーティング
-  get 'inquery/index' => 'inquery#index', as: 'inquery'
-  get 'inquery/confirm' => 'inquery#confirm'
-  get 'inquery/thanks' => 'inquery#thanks'
+  get 'inquiry' => 'inquiry#index', as: 'inquiry'
+  get 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  get 'inquiry/thanks' => 'inquiry#thanks'
+  post 'inquiry/thanks' => 'inquiry#thanks'
 
 end

@@ -2,7 +2,7 @@
   <h1>お問い合わせ</h1>
 </div>
 
-<%= form_with @inquiry, :url => inquiry_thanks_path do |f| %>
+<%= form_with model: @inquiry, url:'/inquiry/thanks', local: true do |f| %>
   <table class="table">
     <tr>
       <th>名前</th>

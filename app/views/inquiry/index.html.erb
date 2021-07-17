@@ -1,4 +1,4 @@
-<%= form_with @inquiry, :url => inquiry_confirm_path local true: do |f| %>
+<%= form_with model: @inquiry, url:'/inquiry/confirm', local:true do |f| %>
   <div class="page-header">
     <h2>お問い合わせ</h2>
   </div>
