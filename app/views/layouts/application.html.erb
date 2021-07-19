@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -19,9 +22,9 @@
             <%= current_user.name %>さん
           <% end %>
         </div>
-        <div class="word-search flex-row float-right">
-          <%= render 'greats/form' %>
-        </div>
+          <ul class="word-search flex-row float-right">
+            <li><%= render 'greats/form' %></li>
+          </ul>
         <div class="tag-search">
           <%= form_with url: greats_path, method: :get, class:"" do %>
           <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),

@@ -2,6 +2,7 @@
 
 class GreatsController < ApplicationController
   # before_action: :only[:]
+  before_action :authenticate_user!, except: %i[index show search]
 
   def new
     @great = Great.new
@@ -14,6 +15,7 @@ class GreatsController < ApplicationController
     # debugger
     if @great.save
       @great.save_tags(tag_list)
+      flash[:notice] = '投稿が完了しました。'
       redirect_to great_path(@great.id)
     else
       render 'new'
@@ -22,9 +24,13 @@ class GreatsController < ApplicationController
 
   def search
     @great = Great.search(params[:keyword])
+    if params[:keyword].blank? == true
     respond_to do |format|
       format.html
       format.json
+    end
+      @greats = params[:tag_id].present? ? Tag.find(params[:tag_id]).great : Great.where(is_release: true)
+      @great_rank = @greats.includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size }
     end
   end
 

@@ -1,1 +1,3 @@
 $("#favorite-btn").html("<%= j(render "favorites/favorite_btn", great: @great) %>");
+
+$(".favorite_<%= @great.id %>").html("<%= j(render 'favorites/favorite_btn',  great: @great ) %>")

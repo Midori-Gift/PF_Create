@@ -1,11 +1,14 @@
 <div id="favorite-btn">
   <% if great.favorited_by?(current_user) %>
-    <%= link_to(great_favorites_path(great),  class:"text-dark heart-red", method: :delete, remote: true) do %><i class="fa fa-heart" aria-hidden="true"></i><%= great.favorites.count %>
+    <%= link_to(great_favorites_path(great), remote:true, class:"text-danger heart-red", method: :delete) do %>
+    <i class="fa fa-heart" aria-hidden="true"></i><%= great.favorites.count %>
   <% end %>
   </div>
   <% else %>
   <div id="favorite-btn">
-    <%= link_to(great_favorites_path(great), class:"text-dark heart-red", method: :post, remote: true) do %><i class="fa fa-heart" aria-hidden="true"></i><%= great.favorites.count %>
+    <%= link_to(great_favorites_path(great), remote:true, class:"text-primary heart-red", method: :post,) do %>
+    <i class="fa fa-heart" aria-hidden="true"></i><%= great.favorites.count %>
   <% end %>
 </div>
 <% end %>
+

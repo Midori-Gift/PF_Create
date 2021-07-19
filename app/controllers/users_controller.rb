@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: %i[show posts]
   before_action :true_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
-    @users = @user.favorites.page(params[:page]).per(2).order('updated_at DESC')
+    @users = @user.favorites.page(params[:page]).per(8).order('updated_at DESC')
     @greats = Great.all
   end
 
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # if @user.update
+    # if @user.update(user_params)
     # else
     #   render 'edit'
     # end
@@ -39,7 +40,6 @@ class UsersController < ApplicationController
   def posts
     @user = User.find(params[:id])
     @greats = Great.where(is_release: true)
-
   end
 
   def unsubscribe

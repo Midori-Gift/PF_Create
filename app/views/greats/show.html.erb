@@ -1,73 +1,70 @@
-<div class="container float-left ml-5">
-  <div class="row mt-5">
-    <div class="col-md-4">
-      <%= attachment_image_tag @great, :great_image, :fill, 200, 200, fallback:"Unkown_account.jpg" %>
-      <div class="col-md-3 ml-5">
-        <% @great.tags.each do |tag| %>
-        <table class="table table-borderless">
-            <th><h4><%= tag.name %></h4></th>
-          <% end %>
-        </table>
+<div class="container">
+  <div class="row  mx-auto mt-5">
+    <div class="col-md-12 mx-auto">
+      <div class="col-md-4">
+        <%= attachment_image_tag @great, :great_image, :fill, 200, 200, fallback:"Unkown_account.jpg" %>
       </div>
-    </div>
-    <div class="col-md-6 text-nowrap" >
-      <table class="table table-borderless">
-        <thead>
-        <tr>
-          <th>偉人名</th>
-          <th>いいね</th>
-          <th>名言</th>
-          <th>投稿者</th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
+      <div class="col-md-6 text-nowrap" >
+        <table class="table table-borderless text-white">
+          <thead>
           <tr>
-            <td><%= @great.name %></td>
-            <td>
-               <% if user_signed_in? %>
-              <h3><%= render 'favorites/favorite_btn', great: @great %></h3>
-              <% end %>
-            </td>
-            <td><%= @great.word %></td>
-            <td><h3><%= link_to @great.user.name, user_path(@great.user.id) %></h3></td>
-            <td>
-              <% if user_signed_in?%>
-                <% if current_user.admin? %>
-                  <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary" %>
-                <% else %>
-                  <%= link_to "編集", edit_great_path(@great.id), class:"btn btn-outline-secondary"%></td>
+            <th><h4>偉人名</h4></th>
+            <th><h4>いいね</h4></th>
+            <th><h4>名言</h4></th>
+            <th><h4>投稿者</h4></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><h3><%= @great.name %></h3></td>
+              <td>
+                 <% if user_signed_in? %>
+                <h3><%= render 'favorites/favorite_btn', great: @great %></h3>
                 <% end %>
-              <% end %>
-            <!--<tr>-->
-            <!--  <td></td>-->
-            <!--  <td></td>-->
-            <!--  <td><= @great.word %></td>-->
-            <!--</tr>-->
-          </tr>
-        </tbody>
-        <tr>
-          <th>どんな人におすすめか？</th>
-        </tr>
-        <tr>
-          <td class="text-wrap"><%= @great.recommend %></td>
-        </tr>
-      </table>
-      </div>
-      <table class="table table-borderless ">
-        <thead>
+              </td>
+              <td><h4><%= @great.word %></h4></td>
+              <td><h3><%= link_to @great.user.name, user_path(@great.user.id) %></h3></td>
+              <td>
+                <% if user_signed_in?%>
+                  <% if current_user.admin? %>
+                    <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary" %>
+                  <% else %>
+                    <%= link_to "編集", edit_great_path(@great.id), class:"btn btn-outline-secondary"%></td>
+                  <% end %>
+                <% end %>
+            </tr>
+          </tbody>
           <tr>
-            <th>偉業や功績</th>
+            <th><h4>どんな人におすすめか？</h4></th>
           </tr>
-        </thead>
-        <tbody class="col-md-8 card" >
-            <td><%= @great.topic %></td>
-        </tbody>
-      </table>
-      <div class="col-md-6" id="comments">
-        <% if user_signed_in? %>
-          <%= render 'comments/comments', great_comments: @great.comments, great: @great, great_comment:  @great_comment %>
-        <% end %>
-      </div>
+          <tr>
+            <td class="text-wrap"><h4><%= @great.recommend %><h4></td>
+          </tr>
 
+           <tr>
+            <th><h4>ジャンル</h4></th>
+          </tr>
+          <tr class="text-wrap mt-3">
+            <td >
+              <% @great.tags.each do |tag| %>
+              <h4><%= tag.name %></h4>
+            <% end %></td>
+          </tr>
+
+        </table>
+        </div>
+        <div class="table table-borderless">
+          <h3 class="text-white">偉業や功績</h3>
+
+          <div class="card"><%= @great.topic %></div>
+
+        </div>
+        <div class="col-md-6" id="comments">
+          <% if user_signed_in? %>
+            <%= render 'comments/comments', great_comments: @great.comments, great: @great, great_comment:  @great_comment %>
+          <% end %>
+        </div>
+    </div>
+  </div>
 </div>

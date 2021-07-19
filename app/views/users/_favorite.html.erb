@@ -1,39 +1,17 @@
 
-<div class="container-fluid">
-  <div class="row h-50 w-1000">
-
-
-    <div id="infiniteScrollingContainer" class="pt-3 px-4 h-100  v-scroll">
-      <div>
-          <div>
-            <div>
-
-                 <div class="panel panel-success">
-                   <div class="panel-body">
-                     <table class="table table-borderless">
-                         <tr>
-                           <th></th>
-                           <th>偉人名</th>
-                           <th>見出し</th>
-                           <th></th>
-                         </tr>
-                      <% @users.each do |post| %>
-                        <tr>
-                          <td><%= attachment_image_tag post.great, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
-                          <td><%= link_to(post.great.name,"/greats/#{post.great.id}") %></td>
-                       </tr>
-                     </table>
-                    </div>
-                 </div>
-                <% end %>
-            </div>
-          </div>
-      </div>
-    </div>
-
-
-    <main role="main" class="col-md-8 pt-3 px-4">
-
-    </main>
-  </div>
-</div>
+ <table class="table table-borderless text-white ">
+     <tr>
+       <th></th>
+       <th>偉人名</th>
+       <th>見出し</th>
+       <th></th>
+     </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= attachment_image_tag user.great, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+      <td><%= link_to(user.great.name,"/greats/#{user.great.id}") %></td>
+      <td><%= user.great.head %></td>
+   </tr>
+   <%= paginate @users %>
+  <% end %>
+</table>
