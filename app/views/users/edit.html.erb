@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mt-5">
             <h2>ユーザー情報編集</h2>
             <%= form_with model: @user, local: true do |f| %>
-            <table class="table table-borderless mt-4">
+            <table class="table table-borderless mt-4 text-white">
                 <tr>
                     <td>プロフィール画像</td>
                     <td><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></td>
@@ -17,8 +17,8 @@
                     <td><%= f.text_field :email, class:"form-control"%></td>
                 </tr>
                 <tr>
-                    <td><%= link_to "退会", user_unsubscribe_path, class:"btn btn-outline-secondary" %></td>
-                    <td><%= f.submit "編集を保存", class:"btn btn-outline-success" %></td>
+                    <td><%= link_to "退会", user_unsubscribe_path, class:"btn btn-outline-danger bg-secondary text-white" %></td>
+                    <td><%= f.submit "編集を保存", class:"btn btn-outline-success bg-secondary text-white" %></td>
                 </tr>
             </table>
             <% end %>

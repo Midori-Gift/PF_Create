@@ -22,12 +22,33 @@
 //   letter-spacing: .03rem;
 //   font-family: 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 // }
- 
-.v-scroll {
-  position: relative;
-  overflow: scroll;
+
+body {
+  background-color: #222222;
+  color: white;
+  font-family: 'Playfair Display', serif;
 }
- 
-.container-fluid {
-  height: calc(100vh - 40px)
+
+.container {
+  background-color: cover;
+
+}
+
+
+#image-slider{
+  height: 510px;
+  background-position: center;
+}
+
+.image1 {
+  background-image: url(test1.jpg);
+}
+.image2 {
+  background-image: url(test2.jpg);
+}
+.image3 {
+  background-image: url(test3.jpg);
+}
+.image4 {
+  background-image: url(test4.jpg);
 }

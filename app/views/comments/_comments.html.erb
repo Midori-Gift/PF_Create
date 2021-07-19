@@ -2,8 +2,8 @@
 
 
   <% great_comments.each do |great_comment| %>
-    <div class="col-md-7 mt-1 mb-4">
-        <table class="table table-borderless">
+    <div class="col-md-12 mt-1 mb-4">
+        <table class="table table-borderless card">
   <tr>
       <td><%= attachment_image_tag great_comment.user, :profile_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
       <td><%= great_comment.user.name %></br></td>

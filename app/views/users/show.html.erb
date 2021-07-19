@@ -11,25 +11,27 @@
           <% end %>
         <% end %>
         </h2>
-        <div class="maypage-body col-md-8 mt-4 mr-5 text-nowrap">
-          <table class="table-borderless">
+        <div class="maypage-body col-md-8 mt-4 mr-5 text-nowrap ">
+          <table class="table-borderless ">
             <td>
               <% if user_signed_in? %>
                 <% if current_user.id == @user.id %>
-                  <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary ml-5" %>
+                  <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary bg-light ml-5" %>
                 <% end %>
               <% end %>
             </td>
 
             <td>
-              <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary ml-4" %>
+              <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary bg-light ml-4" %>
             </td>
           </table>
           <table class="table table-borderless mt-4">
             <tr>
               <td> <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"Unkown_account.jpg" %></td>
-              <% if current_user.id == @user.id %>
-              <td><%= link_to "お問い合わせ", inquiry_path, class:"btn btn-outline-secondary"%></td>
+              <% if user_signed_in?%>
+                <% if current_user.id == @user.id %>
+                  <td><%= link_to "お問い合わせ", inquiry_path, class:"btn btn-outline-secondary bg-light "%></td>
+                <% end %>
               <% end %>
             </tr>
           <div class="follow-elements d-flex text-nowrap">
@@ -38,7 +40,7 @@
                <td>
                 <div id="follow-count">
                   <%= link_to following_user_path(@user.id) do %>
-                  <h5 style="color: black;">フォロー<%= @user.followings.count %>人</h5>
+                  <h5 style="color: white;">フォロー<%= @user.followings.count %>人</h5>
                   <% end %>
                 </div>
               </td>
@@ -58,22 +60,27 @@
               </td>
             </div>
             </tr>
-              <tr>
+              <tr class="text-white">
                 <td>ユーザーネーム <strong>:</strong></td>
-                <td class="ml-5"><%= @user.name %></td>
+                <td class="ml-5 text-white"><%= @user.name %></td>
               </tr>
-              <tr>
+              <tr class="text-white">
                 <td>メールアドレス<strong>:</strong></td>
                 <td class="ml-5"><%= @user.email %></td>
               </tr>
-              <tr>
+              <tr class="text-white">
                 <td>投稿数</td>
-                <td><h4><%= link_to @user.greats.count, user_post_path(@user.id) %>件</h4></td>
-
+                <td>
+                  <h4>
+                    <%= link_to user_post_path(@user.id) do %>
+                    <%= @user.greats.count %>件
+                    <% end %>
+                  </h4>
+                </td>
             </tbody>
           </table>
-            <p>いいねした投稿</p>
-          <div >
+            <h5>いいねした投稿</h>
+          <div>
             <%= render 'users/favorite' %>
           </div>
         </div>

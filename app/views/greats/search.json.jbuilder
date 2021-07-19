@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 json.array! @great do |great|
+  json.id great.id
   json.name great.name
-  json.tag great.tag
-  json.name great.user.name
 end

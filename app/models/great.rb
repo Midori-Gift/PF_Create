@@ -11,8 +11,19 @@ class Great < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-
   attachment :great_image
+
+  validates :name,
+            uniqueness: true,
+            presence: true,
+            length: { minimum: 1, maximum: 20 }
+
+  validates :great_image, presence: true
+  # validates :tag_id, presence: true, length: { minimum: 1, maximum: 20 }
+  validates :head, presence: true, length: { 　minimum: 1, maximum: 20 }
+  validates :word, presence: true, length: { minimum: 1, maximum: 30 }
+  validates :topic, presence: true
+  validates :recommend, presence: true, length: { minimum: 1, maximum: 30 }
 
   # def save_tags(savegreat_tags)
   #   savegreat_tags.each do |new_name|
@@ -36,9 +47,9 @@ class Great < ApplicationRecord
     end
   end
 
-    def self.search(search)
-    return Great.all() unless search
-    Great.where('name LIKE(?)', "%#{search}%")
-    end
+  def self.search(search)
+    return Great.all unless search
 
+    Great.where('name LIKE(?)', "%#{search}%")
+  end
 end

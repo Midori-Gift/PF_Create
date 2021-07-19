@@ -1,27 +1,33 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <table class="table table-borderless">
-        <tr>
-          <th>
-            <h3>
-              <% if current_user.id == @user.id %>
-                あなたのフォロー中ユーザー
-              <% else %>
-                <%= @user.name %>がフォロー中のユーザー
-              <% end %>
-            </h3>
-          </th>
-        </tr>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
-            <td><%= user.name %></td>
-            <td><%= link_to user.greats.count, user_post_path(user.id) %></td>
-          </tr>
-        <% end %>
-      </table>
+      <div class="col-md-7 mt-5 mb-5">
+        <h3>
+          <% if current_user.id == @user.id %>
+            あなたのフォロー中ユーザー
+          <% else %>
+            <%= @user.name %>がフォロー中のユーザー
+          <% end %>
+        </h3>
+      </div>
 
+      <div class="card mt-5">
+        <% @users.each do |user| %>
+          <table class="table table-borderless">
+            <tr>
+              <th></th>
+              <th>ユーザーネーム</th>
+              <th>投稿数</th>
+            </tr>
+            <tr>
+              <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+              <td><%= link_to user.name, user_path(user.id) %></td>
+              <td><h3><%= link_to user_post_path(user.id) do %><%=  user.greats.count %>件<% end %></h3></td>
+            </tr>
+
+          </table>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>

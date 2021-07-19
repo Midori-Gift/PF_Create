@@ -2,39 +2,47 @@
   <div class="row mt-5">
     <div class="col-md-10">
       <% if user_signed_in? %>
-        <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary float-right"%>
+        <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-white bg-secondary text-white float-right mb-5"%>
       <% end %>
       <% @great_rank.each do |greats| %>
-        <table class="table table-borderless">
+        <table class="table table-borderless text-black card">
           <thead>
             <tr>
+              <th></th><th></th>
+              <th></th><th></th>
               <th></th>
               <th>偉人名</th>
               <th>ジャンル</th>
               <th>見出し</th>
-              <th></th>
+              <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
               <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="card">
             <tr>
               <td><%= attachment_image_tag greats, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
               <td><%= link_to greats.name, great_path(greats.id) %></td>
                 <td>
                   <% greats.tags.each do |tag| %>
-                    <%= tag.name %>
+                    <%= tag.name %></br>
                   <% end %>
                 </td>
               <td><%= greats.head %></td>
               <td>
                 <h3>
                   <% if user_signed_in? %>
-                    <% if greats.favorited_by?(current_user) %>
-                      <%= link_to "♡", great_favorites_path(greats.id), method: :delete, class:"", remote: true %><%= greats.favorites.count %>
-                    <% else %>
-                      <%= link_to "♡", great_favorites_path(greats.id), method: :post, remote: true %><%= greats.favorites.count %>
+                    <div class="favorite_<%= greats.id %>">
+                      <% if greats.favorited_by?(current_user) %>
+                        <%= link_to(great_favorites_path(greats), remote:true, class:"text-danger heart-red", method: :delete) do %>
+                        <i class="fa fa-heart" aria-hidden="true"></i><%= greats.favorites.count %>
+                      <% end %>
+                      <% else %>
+                        <%= link_to(great_favorites_path(greats), remote:true, class:"text-primary heart-red", method: :post,) do %>
+                          <i class="fa fa-heart" aria-hidden="true"></i><%= greats.favorites.count %>
+                        <% end %>
+                      <% end %>
+                    </div>
                     <% end %>
-                  <% end %>
                 </h3>
               </td>
               <td>
