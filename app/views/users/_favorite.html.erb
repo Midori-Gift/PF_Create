@@ -1,17 +1,22 @@
-
- <table class="table table-borderless text-white ">
+<div>
+   <thead>
      <tr>
        <th></th>
        <th>偉人名</th>
        <th>見出し</th>
        <th></th>
      </tr>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= attachment_image_tag user.great, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
-      <td><%= link_to(user.great.name,"/greats/#{user.great.id}") %></td>
-      <td><%= user.great.head %></td>
-   </tr>
-   <%= paginate @users %>
-  <% end %>
-</table>
+  </thead>
+
+    <tbody class="card">
+      <tr>
+        <td><%= attachment_image_tag user.great, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+        <td><%= link_to(user.great.name,"/greats/#{user.great.id}") %></td>
+        <td><%= user.great.head %></td>
+     </tr>
+    </tbody>
+</div>
+
+
+
+
