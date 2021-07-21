@@ -2,7 +2,7 @@
   <div class="row  mx-auto mt-5">
     <div class="col-md-12 mx-auto">
       <div class="col-md-4">
-        <%= attachment_image_tag @great, :great_image, :fill, 300, 300, fallback:"Unkown_account.jpg" %>
+        <%= attachment_image_tag @great, :great_image, :fill, 300, 300, fallback:"Unkown_account.jpg", size:'200x200' %>
       </div>
       <div class="col-md-6 text-nowrap" >
         <table class="table table-borderless text-white">
@@ -30,39 +30,45 @@
                   <% if current_user.admin? %>
                     <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary text-dark" %>
                   <% else %>
-                    <%= link_to "編集", edit_great_path(@great.id), class:"btn btn-outline-secondary bg-light text-dark"%></td>
+                    <%= link_to "編集する", edit_great_path(@great.id), class:"btn btn-outline-secondary bg-light text-dark font-weight-bold"%></td>
                   <% end %>
                 <% end %>
             </tr>
           </tbody>
-          <tr>
-            <th><h4>どんな人におすすめか？</h4></th>
-          </tr>
-          <tr>
-            <td class="text-wrap"><h4><%= @great.recommend %><h4></td>
-          </tr>
-
-           <tr>
-            <th><h4>ジャンル</h4></th>
-          </tr>
-          <tr class="text-wrap mt-3">
-            <td >
-              <% @great.tags.each do |tag| %>
-              <h4><%= tag.name %></h4>
-            <% end %></td>
-          </tr>
-
         </table>
+          <table class="table text-white table-borderless">
+          <thead>
+             <tr>
+              <th><h4>ジャンル</h4></th>
+              <th><h4>どんな人におすすめか？</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-wrap mt-3 ml-5">
+            <td>
+              <% @great.tags.each do |tag| %>
+                <h4><%= tag.name %></h4>
+              <% end %>
+            </td>
+              <td class><h4><%= @great.recommend %><h4></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+
         </div>
         <div class="table table-borderless">
           <h3 class="text-white">偉業や功績</h3>
-          <div class="card"><%= @great.topic %></div>
+          <div class="card m-3"><div class="topic-erements m-4"><%= @great.topic %></div></div>
         </div>
-        <div class="col-md-6" id="comments">
-          <% if user_signed_in? %>
+        <div class="col-md-5 comment-form mt-5">
             <%= render 'comments/comments', great_comments: @great.comments, great: @great, great_comment:  @great_comment %>
-          <% end %>
-        </div>
-    </div>
+        <% if user_signed_in? %>
+          <div class="mt-5">
+            <%= render 'comments/form', great: @great, great_comment:  @great_comment %>
+          </div>
+        <% end %>
+      </div>
   </div>
 </div>

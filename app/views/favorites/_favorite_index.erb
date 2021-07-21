@@ -3,10 +3,8 @@
       <%= link_to(great_favorites_path(great), remote:true, class:"text-danger heart-red", method: :delete) do %>
       <i class="fa fa-heart" aria-hidden="true"></i><%= great.favorites.count %>
     <% end %>
-  </div>
     <% else %>
-  <div id="favorite-index">
-    <%= link_to(great_favorites_path(great), remote:true, class:"text-primary heart-red", method: :post,) do %>
+    <%= link_to(great_favorites_path(great), remote:true, class:"text-primary heart-red", method: :post) do %>
     <i class="fa fa-heart" aria-hidden="true"></i><%= great.favorites.count %>
   <% end %>
   <% end %>

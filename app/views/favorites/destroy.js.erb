@@ -1,5 +1,2 @@
-$("#favorite-btn").html("<%= j(render "favorites/favorite_btn", great: @great) %>");
 
-$(".favorite_<%= @great.id %>").html("<%= j(render 'favorites/favorite_btn',  great: @great ) %>")
-
-<!--$(".great_rank").html("<= j(render 'users/change_post', greats: @great_rank ) %>");-->
+$(".favorite_<%= @great.id %>").html("<%= j(render 'favorites/favorite_btn',  great: @great ) %>");

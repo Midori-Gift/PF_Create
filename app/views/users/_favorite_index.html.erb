@@ -4,7 +4,7 @@
     <i class="fa fa-heart" aria-hidden="true"></i><%= greats.favorites.count %>
   <% end %>
   <% else %>
-    <%= link_to(great_favorites_path(greats), remote:true, class:"text-primary heart-red", method: :post,) do %>
+    <%= link_to(great_favorites_path(greats), remote:true, class:"text-primary heart-red", method: :post) do %>
       <i class="fa fa-heart" aria-hidden="true"></i><%= greats.favorites.count %>
     <% end %>
   <% end %>

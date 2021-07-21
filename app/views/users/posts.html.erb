@@ -14,7 +14,7 @@
             </tr>
           </thead>
 
-          <tbody "card">
+          <tbody>
             <% if greats.is_release == true %>
             <tr>
               <td><%= attachment_image_tag greats, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
@@ -25,12 +25,11 @@
                   <% end %>
                 </td>
               <td><%= greats.head %></td>
+            <% if user_signed_in? %>
               <td><h3>
-                  <% if user_signed_in? %>
-                   <%= render 'users/favorite_index', greats: greats %>
-                    <% end %>
-                  </h3>
-                </td>
+                <%= render 'users/favorite_index', greats: greats %>
+              </h3></td>
+            <% end %>
               </tr>
               <% end %>
           </tbody>

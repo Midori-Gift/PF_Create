@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GreatMan</title>
+
+
+    <title>The way of Great.</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-180x180.png">
   </head>
 
   <body>
@@ -59,6 +63,7 @@
     </div>
   </nav>
 </header>
+  <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>

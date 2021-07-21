@@ -16,14 +16,14 @@ class Great < ApplicationRecord
   validates :name,
             uniqueness: true,
             presence: true,
-            length: { minimum: 1, maximum: 20 }
+            length: {maximum: 20 }
 
   validates :great_image, presence: true
   # validates :tag_id, presence: true, length: { minimum: 1, maximum: 20 }
-  validates :head, presence: true, length: { 　minimum: 1, maximum: 20 }
-  validates :word, presence: true, length: { minimum: 1, maximum: 30 }
+  validates :head, presence: true, length: {  maximum: 40 }
+  validates :word, presence: true, length: { maximum: 40 }
   validates :topic, presence: true
-  validates :recommend, presence: true, length: { minimum: 1, maximum: 30 }
+  validates :recommend, presence: true, length: { maximum: 40 }
 
   # def save_tags(savegreat_tags)
   #   savegreat_tags.each do |new_name|

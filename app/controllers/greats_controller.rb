@@ -24,18 +24,14 @@ class GreatsController < ApplicationController
 
   def search
     @great = Great.search(params[:keyword])
-    if params[:keyword].blank? == true
     respond_to do |format|
       format.html
       format.json
     end
-      @greats = params[:tag_id].present? ? Tag.find(params[:tag_id]).great : Great.where(is_release: true)
-      @great_rank = @greats.includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size }
-    end
   end
 
+  # @great はタグ検索の表示、@great_rank はランキング機能用
   def index
-    # @user = current_user.id
     @greats = params[:tag_id].present? ? Tag.find(params[:tag_id]).great : Great.where(is_release: true)
     @great_rank = @greats.includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size }
   end
