@@ -11,26 +11,26 @@
           <% end %>
         <% end %>
         </h2>
-        <div class="maypage-body col-md-8 mt-4 mr-5 text-nowrap ">
+        <div class="maypage-body col-md-10 mt-4 mr-5">
           <table class="table-borderless ">
             <td>
               <% if user_signed_in? %>
                 <% if current_user.id == @user.id %>
-                  <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary bg-light ml-5" %>
+                  <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class:"btn btn-outline-secondary bg-light font-weight-bold ml-5" %>
                 <% end %>
               <% end %>
             </td>
 
             <td>
-              <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary bg-light ml-4" %>
+              <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-secondary bg-light font-weight-bold ml-4" %>
             </td>
           </table>
           <table class="table table-borderless mt-4">
             <tr>
-              <td> <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback:"Unkown_account.jpg" %></td>
+              <td> <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback:"Unkown_account.jpg", size:'150x150' %></td>
               <% if user_signed_in?%>
                 <% if current_user.id == @user.id %>
-                  <td><%= link_to "お問い合わせ", inquiry_path, class:"btn btn-outline-secondary bg-light "%></td>
+                  <td><%= link_to "お問い合わせ", inquiry_path, class:"btn btn-outline-secondary bg-light font-weight-bold "%></td>
                 <% end %>
               <% end %>
             </tr>
@@ -79,10 +79,15 @@
                 </td>
             </tbody>
           </table>
-            <h5>いいねした投稿</h>
-          <div>
-            <%= render 'users/favorite' %>
-          </div>
+            <h5>いいねした投稿</h5>
+              <% @users.each do |user| %>
+              <div>
+                <table class="table table-borderless text-black card">
+                  <%= render 'users/favorite', user: user %>
+                </table>
+              <% end %>
+              <h3 class="mt-5 mb-5"><%= paginate @users %></h3>
+            </div>
         </div>
       </div>
     </div>

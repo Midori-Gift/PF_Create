@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% @great_update.each do |great| %>
+        <table>
+          <tr>
+            <th>編集者</th>
+            <th>編集時間</th>
+          </tr>
+          <tr>
+            <td><%= great.name %></td>
+            <td><%= great %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

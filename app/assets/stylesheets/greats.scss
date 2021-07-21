@@ -1,3 +1,18 @@
 // Place all the styles related to the Greats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+  color: black;
+  font-weight: bold;
+  font-size: 23px;
+
+}
+
+thead {
+  padding-left: 112px;
+}
+
+.table td {
+  backgroound-color: white;
+}

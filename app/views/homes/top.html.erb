@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container pt-3">
     <div id="image-slider">
       <div id="theTarget">
         <div class="image1"></div>
@@ -7,26 +7,29 @@
         <div class="image4"></div>
       </div>
     </div>
+    <div class="mx-auto mt-5">
+        <%= render 'greats/form' %>
+    </div>
     <div class="row">
-        <div class="col-md-8 mx-auto mt-5">
+        <div class="first-text col-md-10 mx-auto mt-5 text-center">
             <h1 class="d-inline"><strong>The way of Grate.</strong></h1>
-            <h2 class="d-inline ml-2">へようこそ！</h2>
-            <h2 class="mt-2">あなたの道を照らすような</h2>
-            <h2>出会いがありますように</h>
-            <div class="col-md-5, mx-auto">
+            <h1 class="d-inline ml-2">へようこそ！</h1>
+            <h1 class="mt-2">あなたの道を照らすような</h1>
+            <h1>出会いがありますように</h1>
+            <div class="col-md-2, mx-auto">
                 <%= link_to "Log in", user_session_path, class:"btn btn-block btn-secondary mt-5" %>
                 <%= link_to "新規登録", new_user_registration_path, class:"btn btn-block btn-secondary mt-4" %>
             </div>
         </div>
-        <table class="col-md-10 mt-3 mx-auto flex-row">
+        <table class="col-md-10 mt-3 flex-row mx-auto">
             <tr>
-                <td><h3>注目の偉人</h3></td>
+                <td><h2>注目の偉人</h2></td>
             </tr>
         </table>
-        <div class="col-md-10 mx-auto d-flex">
+        <div class="col-md-10 d-flex mx-auto">
          <% @great_rank.each do |greats| %>
         <%= link_to great_path(greats.id) do %>
-            <div class="card mt-5 m-3" style="width: 18rem;">
+            <div class="card mt-5 m-3" style="width: 15rem;">
                     <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="" preserveAspectRatio="" focusable="false" role="img" aria-label="Placeholder: Image cap">
                     <text clas="" fill="#dee2e6" dy=".3em" x="50%" y="50%"><%= attachment_image_tag greats, :great_image, :fill, 100, 100 %></text></svg>
                     <div class="card-body ">

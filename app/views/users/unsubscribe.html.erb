@@ -1,13 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-auto">
+    <div class="col-md-8 mx-auto mt-5">
       <h2>本当に退会しますか？</h2>
-      <div class="hide-select">
-        <%= link_to "退会しない", user_path(@user.id), class:"btn btn-outline-secondary" %>
+      <div class="hide-select mt-5">
+        <%= link_to "退会しない", user_path(@user.id), class:"btn btn-outline-secondary bg-secondary text-white mr-5 " %>
+
+        <!--管理者側でログイン後、ユーザーの有効/退会を切り替えることができる。-->
+
         <% if @user.is_delete == false %>
-          <%= link_to "退会する", user_hide_path(@user.id), metod: :patch, class:"btn btn-outline-secondary" %>
+          <%= link_to "退会する", user_hide_path(@user.id), metod: :patch, class:"btn btn-outline-secondary bg-secondary text-white" %>
         <% else %>
-          <%= link_to "有効にする", user_hide_path(@user.id), metod: :patch, class:"btn btn-outline-success" %>
+          <%= link_to "有効にする", user_hide_path(@user.id), metod: :patch, class:"btn btn-outline-white bg-secondary text-white" %>
         <% end %>
       </div>
     </div>

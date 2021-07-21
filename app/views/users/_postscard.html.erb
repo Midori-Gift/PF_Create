@@ -1,0 +1,42 @@
+
+<thead>
+  <tr>
+    <th></th>
+    <th>偉人名</th>
+    <th>ジャンル</th>
+    <th>見出し</th>
+    <th></th>
+  </tr>
+</thead>
+<div class="great_rank">
+  <tbody class="card">
+    <tr>
+      <td><%= attachment_image_tag greats, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+      <td><%= link_to greats.name, great_path(greats.id) %></td>
+        <td>
+          <% greats.tags.each do |tag| %>
+            <%= tag.name %></br>
+          <% end %>
+        </td>
+      <td><%= greats.head %></td>
+      <td>
+        <h3>
+          <% if user_signed_in? %>
+            <%= render 'users/favorite_index', greats: greats %>
+          <% end %>
+        </h3>
+      </td>
+      <td>
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <% if greats.is_release == true %>
+             <h5 class="text-success">公開</h5>
+            <% else %>
+              <h5>非公開</h5>
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</div>

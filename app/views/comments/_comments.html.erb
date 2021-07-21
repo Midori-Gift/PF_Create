@@ -1,32 +1,25 @@
 
-
-
-  <% great_comments.each do |great_comment| %>
-    <div class="col-md-12 mt-1 mb-4">
-        <table class="table table-borderless card">
-  <tr>
-      <td><%= attachment_image_tag great_comment.user, :profile_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
-      <td><%= great_comment.user.name %></br></td>
-  </tr>
-      <tr>
-        <td><%= great_comment.created_at.strftime('%Y/%m/%d') %></td>
-      </tr>
-      <tr>
-        <td><div class="w-100"><%= great_comment.comment %></div></td>
-      </tr>
-  <tr>
-    <td>
-      <% if great_comment.user == current_user %>
-      <div class="comment-delete">
-        <%= link_to "削除する", great_comment_path(great_comment.great, great_comment), method: :delete, remote: true, class:"btn btn-outline-danger" %>
-      </div>
-      <% end %>
-    </td>
-  </tr>
-    </table>
+  <div class="comments">
+    <% great_comments.each do |great_comment| %>
+        <div class="card mt-3">
+          <div class="card-erements m-3">
+          <div>
+            <%= attachment_image_tag great_comment.user, :profile_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %>
+            <%= great_comment.user.name %>
+          </div>
+          <div><%= great_comment.created_at.strftime('%Y/%m/%d') %></div>
+          <div class="m-3"><%= great_comment.comment %></div>
+        <div>
+          <div>
+            <% if great_comment.user == current_user %>
+              <div class="comment-delete float-right">
+                <%= link_to "削除する", great_comment_path(great_comment.great, great_comment), method: :delete, remote: true, class:"btn btn-outline-secondary bg-dark text-white mr-5" %>
+              </div>
+            <% end %>
+            </div>
+          </div>
+          </div>
+        </div>
+    <% end %>
   </div>
-  <% end %>
 
-  <div class="col-md-8 comment-form">
-    <%= render 'comments/form', great: great, great_comment: great_comment %>
-  </div>

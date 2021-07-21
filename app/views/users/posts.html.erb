@@ -2,7 +2,8 @@
   <div class="row mt-5">
     <div class="col-md-8">
       <% @user.greats.each do |greats| %>
-        <table class="table table-borderless text-white">
+        <table class="table table-boderless card">
+          <div>
           <thead>
             <tr>
               <th></th>
@@ -12,6 +13,7 @@
               <th></th>
             </tr>
           </thead>
+
           <tbody>
             <% if greats.is_release == true %>
             <tr>
@@ -23,25 +25,15 @@
                   <% end %>
                 </td>
               <td><%= greats.head %></td>
+            <% if user_signed_in? %>
               <td><h3>
-                  <% if user_signed_in? %>
-                    <div class="favorite_<%= greats.id %>">
-                      <% if greats.favorited_by?(current_user) %>
-                        <%= link_to(great_favorites_path(greats), remote:true, class:"text-danger heart-red", method: :delete) do %>
-                        <i class="fa fa-heart" aria-hidden="true"></i><%= greats.favorites.count %>
-                      <% end %>
-                      <% else %>
-                      <div id="favorite_<%= greats.id %>">
-                        <%= link_to(great_favorites_path(greats), remote:true, class:"text-primary heart-red", method: :post,) do %>
-                          <i class="fa fa-heart" aria-hidden="true"></i><%= greats.favorites.count %>
-                        <% end %>
-                      <% end %>
-                    </div>
-                    <% end %>
-                </h3></td><!--いいねボタン予定-->
+                <%= render 'users/favorite_index', greats: greats %>
+              </h3></td>
+            <% end %>
               </tr>
               <% end %>
           </tbody>
+          </div>
         </table>
       <% end %>
     </div>
