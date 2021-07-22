@@ -33,3 +33,5 @@
 *.env
 /.env # 7/5 デプロイを学ぼう
 /env/.env
+
+/vendor

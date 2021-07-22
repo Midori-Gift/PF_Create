@@ -5,14 +5,14 @@ class GreatsController < ApplicationController
   def new
     @great = Great.new
   end
-  
+
   # createアクションは投稿の保存が完了したなら、タグの保存ををする
-  
+
   def create
     @great = Great.new(great_params)
     @great.user_id = current_user.id
     tag_list = params[:great][:tag_ids].split(',')
-    
+
     if @great.save
       @great.save_tags(tag_list)
       flash[:notice] = '投稿が完了しました。'
@@ -21,7 +21,7 @@ class GreatsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def search
     @great = Great.search(params[:keyword])
     respond_to do |format|
@@ -31,7 +31,7 @@ class GreatsController < ApplicationController
   end
 
   # @great はタグ検索の表示、@great_rank はランキング機能用
-  
+
   def index
     @greats = params[:tag_id].present? ? Tag.find(params[:tag_id]).great : Great.where(is_release: true)
     @great_rank = @greats.includes(:favorited_users).sort { |a, b| b.favorited_users.size <=> a.favorited_users.size }
@@ -46,13 +46,13 @@ class GreatsController < ApplicationController
     @great = Great.find(params[:id])
     @tag_list = @great.tags.pluck(:name).join(',')
   end
-  
+
   # createアクション同様、投稿の更新後にタグの保存を行っている。
-  
+
   def update
     @great = Great.find(params[:id])
     tag_list = params[:great][:tag_ids].split(',')
-    
+
     if @great.update(great_params)
       @great.save_tags(tag_list)
       redirect_to great_path(@great.id)
