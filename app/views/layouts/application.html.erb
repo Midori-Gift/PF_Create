@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>The way of Great.</title>
+    <%= favicon_link_tag(source='/favicon.ico', options={}) %>
+    <!--
     <link rel=”icon” href=“/image/favicon.ico”>
     <link rel="icon" href="/favicon.ico" /> <!-- ファビコンを設定 -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> <!-- アップルタッチアイコンも設定 -->
+    <!--<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> <!-- アップルタッチアイコンも設定 -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
