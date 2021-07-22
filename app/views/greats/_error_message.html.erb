@@ -1,0 +1,20 @@
+  <% if great.errors.any? %>
+  <div class="alert alert-secondary bg-white" role="alert">
+    <strong>入力内容にエラーがあります</strong>
+    <ul>
+      <% great.errors.each do |attr, msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="alert alert-secondary bg-white">
+      <strong>注意事項</strong>
+      <ul>
+          <li>すでに投稿のある偉人は投稿できません。</li>
+          <li>架空人物の投稿はお控えください。</li>
+          <li>見出しは短めの紹介文として使われます。</li>
+          <li>ジャンルタグに使うカンマは半角です。「,」</li>
+      </ul>
+  <% end %>
+    </div>
+</div>

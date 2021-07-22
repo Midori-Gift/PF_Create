@@ -8,29 +8,25 @@ class Great < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
 
+  attachment :great_image
+
+  # 投稿時のバリデーション一覧
+
+  with_options presence: {message: "空欄が存在します。"} do
+    validates :name, uniqueness: {message: "すでに投稿のある名前です。"}, length: {maximum: 20, message: "名前は20字以内です"}
+    validates :head,length: { maximum: 40, message: "見出しは40字以内です。"}
+    validates :word, length: { maximum: 40, message: "名言は40字以内です。" }
+    validates :topic
+    validates :recommend, length: { maximum: 40, message: "おすすめは40字以内です" }
+  end
+
+  # validates :tag_id, presence: true, length: { minimum: 1, maximum: 20 }
+
+  # 以下いいね機能・タグの保存・検索機能用の定義
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-  attachment :great_image
-
-  validates :name,
-            uniqueness: true,
-            presence: true,
-            length: {maximum: 20 }
-
-  validates :great_image, presence: true
-  # validates :tag_id, presence: true, length: { minimum: 1, maximum: 20 }
-  validates :head, presence: true, length: {  maximum: 40 }
-  validates :word, presence: true, length: { maximum: 40 }
-  validates :topic, presence: true
-  validates :recommend, presence: true, length: { maximum: 40 }
-
-  # def save_tags(savegreat_tags)
-  #   savegreat_tags.each do |new_name|
-  #     great_tag = Tag.find_or_create_by(name: new_name)
-  #     self.tags << great_tag
-  #   end
-  # end
 
   def save_tags(savegreat_tags)
     current_tags = tags.pluck(:name) unless tags.nil?

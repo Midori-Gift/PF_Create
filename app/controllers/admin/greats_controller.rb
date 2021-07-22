@@ -7,17 +7,23 @@ class Admin::GreatsController < ApplicationController
 
   def edit
     @great = Great.find(params[:id])
+    @tag_list = @great.tags.pluck(:name).join(',')
   end
 
   def update
     @great = Great.find(params[:id])
+    tag_list = params[:great][:tag_ids].split(',')
+    
     if @great.update(great_params)
-      redirect_to '/'
+      @great.save_tags(tag_list)
+      redirect_to great_path(@great.id)
     else
-      render :edit
+      render 'edit'
     end
   end
-
+  
+  # 投稿の公開非公開と非公開を管理する。(ユーザーは触ることが無い)
+  
   def release
     @great = Great.find(params[:id])
     if @great.is_release == true

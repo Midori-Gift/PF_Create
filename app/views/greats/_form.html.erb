@@ -1,5 +1,5 @@
-<%= form_with(url: search_greats_path, local: true, method: :get, class: "search-form") do |f| %>
-  <%= f.text_field :name, placeholder: "偉人名を入力", class: "js-text_field form-control" %>
+<%= form_with(url: search_greats_path, local: true, method: :get, class: "search-form input-group-lg") do |f| %>
+  <%= f.text_field :name, placeholder: "偉人名を入力", class: "js-text_field form-control font-weight-bold" %>
 
 <% end %>
     <div class="js-messages h3">

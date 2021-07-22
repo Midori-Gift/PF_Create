@@ -26,13 +26,13 @@
           <% end %>
         </h3>
       </td>
-      <td>
+      <td class="text-nowrap">
         <% if user_signed_in? %>
           <% if current_user.admin? %>
             <% if greats.is_release == true %>
              <h5 class="text-success">公開</h5>
             <% else %>
-              <h5>非公開</h5>
+              <h5 class="text-danger">非公開</h5>
             <% end %>
           <% end %>
         <% end %>

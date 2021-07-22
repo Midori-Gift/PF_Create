@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: %i[show posts]
+  before_action :authenticate_user!, except: [:show, :posts]
   before_action :true_user, only: [:edit]
 
   def show
@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @users = @user.favorites.page(params[:page]).per(8).order('updated_at DESC')
     @greats = Great.all
   end
+  
+  # ユーザーの編集にリンクへの直接入力で入ろうとした場合の振るい分け
 
   def true_user
     @user = User.find(params[:id])
@@ -21,10 +23,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # if @user.update(user_params)
-    # else
-    #   render 'edit'
-    # end
   end
 
   def following
@@ -41,11 +39,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @greats = Great.where(is_release: true)
   end
-
+  
   def unsubscribe
     @user = User.find(params[:id])
   end
-
+  
+  # ユーザーの倫理削除用
+  
   def hide
     @users = current_user
     @user = User.find(params[:id])
@@ -64,7 +64,6 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-
     user.update!(user_params)
     redirect_to user_path(user.id)
   end

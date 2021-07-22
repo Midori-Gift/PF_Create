@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-
     <title>The way of Great.</title>
+    <link rel=”icon” href=“/image/favicon.ico”>
+    <link rel="icon" href="/favicon.ico" /> <!-- ファビコンを設定 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> <!-- アップルタッチアイコンも設定 -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-180x180.png">
   </head>
 
   <body>
@@ -63,7 +61,9 @@
     </div>
   </nav>
 </header>
-  <%= flash[:notice] %>
+  <div class="col-md-5 mt-3  alert-secondary bg-white">
+    <%= flash[:notice] %>
+  </div>
     <%= yield %>
   </body>
 </html>
