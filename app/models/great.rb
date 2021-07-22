@@ -9,8 +9,8 @@ class Great < ApplicationRecord
   has_many :favorited_users, through: :favorites, source: :user
 
   attachment :great_image
-  
-  # バリデーション一覧
+
+  # 投稿時のバリデーション一覧
 
   with_options presence: {message: "空欄が存在します。"} do
     validates :name, uniqueness: {message: "すでに投稿のある名前です。"}, length: {maximum: 20, message: "名前は20字以内です"}
@@ -21,9 +21,9 @@ class Great < ApplicationRecord
   end
 
   # validates :tag_id, presence: true, length: { minimum: 1, maximum: 20 }
-  
+
   # 以下いいね機能・タグの保存・検索機能用の定義
-  
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
