@@ -1,16 +1,10 @@
 <div class="container">
-  <div class="row">
-     <div class="col-md-10">
-       <% if @great.errors.any? %>
-          <div class="alert alert-secondary bg-white" role="alert">
-            <strong>入力内容にエラーがあります</strong>
-            <ul>
-              <% @great.errors.each do |attr, msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+  <div class="row ml-auto">
+      <div class="error-message mt-3 col-md-6 mx-auto">
+         <%= render 'greats/error_message', great: @great %>  <!--エラーメッセージ用部分テンプレート-->
+       </div>
+     <div class="col-md-8 mx-auto">
+
 
       <%= form_with model: @great, url:'/greats', local:true do |f| %>
       <!--< @greats.each do |greats| %>-->
@@ -28,7 +22,7 @@
             <div class="form-group">
               <tr>
                 <td class="pt-3"><strong>ジャンルタグ</strong></td>
-                <td class="pt-3"><%= f.text_field :tag_ids, class:"form-control", id:'tag_ids', placeholder: "タグをつける。　複数つける場合','で区切ってください", value: @tag_list %></td>
+                <td class="pt-3"><%= f.text_field :tag_ids, class:"form-control", id:'tag_ids', placeholder: "タグ複数の場合「,」で区切ります。", value: @tag_list %></td>
               </tr>
             </div>
             <tr>
@@ -48,7 +42,7 @@
       </table>
             <h4 class="mt-5"><strong>偉人紹介</strong></h4>
             <div class="topic"><%= f.text_area :topic, class:"form-control mt-4" %></div>
-            <div class="form-btn mt-3"><%= f.submit "投稿する", class:"btn btn-outline-secondary bg-light font-weight-bold float-right" %></div>
+            <div class="form-btn mt-3"><%= f.submit "投稿する", class:"btn btn-outline-secondary bg-light font-weight-bold float-right mb-5" %></div>
       <% end %>
     </div>
   </div>

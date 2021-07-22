@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class GreatsController < ApplicationController
-  # before_action: :only[:]
-  before_action :authenticate_user!, except: %i[index show search]
 
   def new
     @great = Great.new
