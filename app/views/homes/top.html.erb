@@ -1,4 +1,12 @@
 <div class="container pt-3">
+    <div class="float-right mb-3">
+
+    <% if user_signed_in? == false %>
+
+    <% elsif current_user.admin? == true %>
+    <%= link_to "ユーザー一覧",admin_users_path, class:"btn btn-outline-white bg-white font-weight-bold text-secondary " %>
+    <% end %>
+    </div>
     <div id="image-slider">
       <div id="theTarget">
         <div class="image1"></div>

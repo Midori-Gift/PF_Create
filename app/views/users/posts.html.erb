@@ -2,6 +2,7 @@
   <div class="row mt-5">
     <div class="col-md-8">
       <% @user.greats.each do |greats| %>
+        <% if greats.is_release == true %>
         <table class="table table-borderless card">
           <div>
           <thead>
@@ -13,9 +14,7 @@
               <th></th>
             </tr>
           </thead>
-
           <tbody class="card">
-            <% if greats.is_release == true %>
             <tr>
               <td><%= attachment_image_tag greats, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
               <td><%= link_to greats.name, great_path(greats.id) %></td>

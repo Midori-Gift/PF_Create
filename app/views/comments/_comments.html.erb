@@ -8,7 +8,7 @@
             <%= great_comment.user.name %>
           </div>
           <div><%= great_comment.created_at.strftime('%Y/%m/%d') %></div>
-          <div class="m-3"><%= great_comment.comment %></div>
+          <div class="m-3 comments-elements"><%= great_comment.comment %></div>
         <div>
           <div>
             <% if great_comment.user == current_user %>
