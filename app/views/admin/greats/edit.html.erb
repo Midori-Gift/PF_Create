@@ -53,6 +53,9 @@
                   <%= link_to "公開中に", greats_release_path(@great.id), metod: :patch, class:"btn btn-outline-success" %>
                 <% end %>
               </td>
+              <td>
+                <%= link_to "投稿を削除する", admin_great_path, method: :delete, class:"btn btn-danger "%>
+              </td>
             </tr>
         </tbody>
       </table>

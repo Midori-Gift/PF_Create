@@ -63,7 +63,7 @@ class GreatsController < ApplicationController
 
   def destroy
     great = great.find(paramas[:id])
-    great.destroy!
+    great.destroy
     redirect_to greats_path
   end
 

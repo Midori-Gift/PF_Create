@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   # 管理者用ルーティング一覧
   namespace :admin do
     resources :users, only: [:index]
-    resources :greats, only: [:edit, :update, :index]
+    resources :greats, only: [:edit, :update, :index, :destroy]
   end
 
   get 'admin/greats/:id/release' => 'admin/greats#release', as: 'greats_release'

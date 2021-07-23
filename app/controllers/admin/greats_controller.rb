@@ -13,7 +13,7 @@ class Admin::GreatsController < ApplicationController
   def update
     @great = Great.find(params[:id])
     tag_list = params[:great][:tag_ids].split(',')
-    
+
     if @great.update(great_params)
       @great.save_tags(tag_list)
       redirect_to great_path(@great.id)
@@ -21,9 +21,9 @@ class Admin::GreatsController < ApplicationController
       render 'edit'
     end
   end
-  
+
   # 投稿の公開非公開と非公開を管理する。(ユーザーは触ることが無い)
-  
+
   def release
     @great = Great.find(params[:id])
     if @great.is_release == true
@@ -32,6 +32,12 @@ class Admin::GreatsController < ApplicationController
       @great.update(is_release: true)
     end
     redirect_to request.referer
+  end
+
+  def destroy
+    great = Great.find(params[:id])
+    great.destroy
+    redirect_to greats_path
   end
 
   private

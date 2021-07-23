@@ -34,4 +34,6 @@
 /.env # 7/5 デプロイを学ぼう
 /env/.env
 
-/vendor
+/vendor #vendarフォルダがGit Hub上に上がってしまうため追加
+vender
+vendor/

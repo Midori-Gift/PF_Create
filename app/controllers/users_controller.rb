@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @users = @user.favorites.page(params[:page]).per(8).order('updated_at DESC')
     @greats = Great.all
   end
-  
+
   # ユーザーの編集にリンクへの直接入力で入ろうとした場合の振るい分け
 
   def true_user
@@ -39,13 +39,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @greats = Great.where(is_release: true)
   end
-  
+
   def unsubscribe
     @user = User.find(params[:id])
   end
-  
-  # ユーザーの倫理削除用
-  
+
+  # ユーザーの論理削除用
+
   def hide
     @users = current_user
     @user = User.find(params[:id])

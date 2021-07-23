@@ -62,10 +62,10 @@
           <h3 class="text-white">偉業や功績</h3>
           <div class="card m-3"><div class="topic-erements m-4"><%= @great.topic %></div></div>
         </div>
-        <div class="col-md-5 comment-form mt-5">
+        <div class="col-md-5 comment-form mt-5 mb-5">
             <%= render 'comments/comments', great_comments: @great.comments, great: @great, great_comment:  @great_comment %>
         <% if user_signed_in? %>
-          <div class="mt-5">
+          <div class="mt-5 mb-5">
             <%= render 'comments/form', great: @great, great_comment:  @great_comment %>
           </div>
         <% end %>
