@@ -34,19 +34,17 @@
                 <td><h2>注目の偉人</h2></td>
             </tr>
         </table>
-        <div class="col-md-10 d-flex mx-auto">
+        <div class="col-md-10 col-xs-6 d-flex mx-auto card-elements">
          <% @great_rank.each do |greats| %>
-             <% if greats.is_release == true %>
                 <%= link_to great_path(greats.id) do %>
-                    <div class="card mt-5 m-3" style="width: 15rem;">
+                    <div class="card mt-5 m-3" style="width: 11rem;">
                         <svg class="bd-placeholder-img card-img-top" width="100%" height="80" xmlns="" preserveAspectRatio="" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <text clas="" fill="#dee2e6" dy=".3em" x="50%" y="50%"><%= attachment_image_tag greats, :great_image, :fill, 100, 100 %></text></svg>
+                        <text class="rank-image" fill="#dee2e6" dy=".3em" x="50%" y="50%"><%= attachment_image_tag greats, :great_image, :fill, 100, 100 %></text></svg>
                         <div class="card-body ">
                             <h5 class="card-title border-bottom"><%= greats.name %></h5><h3 class="card-title text-danger border-bottom">♥<%= greats.favorites.count%></h3>
                         <p class="card-text"><%= greats.head %></p>
                         </div>
                     </div>
-                    <% end %>
                 <% end %>
             <% end %>
             </div>

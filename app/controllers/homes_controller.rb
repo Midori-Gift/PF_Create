@@ -4,11 +4,9 @@ class HomesController < ApplicationController
 
   # TOPページでいいね数上位の投稿3つを表示
   def top
-    # @great = Great.where(is_release: true)
-    @great_rank = Great.find(Favorite.group(:great_id).order('count(great_id) desc').limit(3).pluck(:great_id))
+    @great_rank = Great.joins(:favorites).where(is_release: 1).group(:id).order('count(*) desc').limit(3)
   end
 
   def about
-    @great_search = Great.where(is_release: true)
   end
 end

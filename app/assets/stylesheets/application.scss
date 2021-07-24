@@ -65,7 +65,45 @@ body {
   font-family: '游ゴシック体';
 }
 
-.comments-erements {
-  white-space: pre-wrap;
+
+@media(max-width: 1000px){
+  .card{
+    font-size: 90% !important;
+  }
+  .card a{
+    font-size: 70% !important;
+  }
+  .card td h5{
+    font-size: 13px !important;
+  }
 }
 
+@media(max-width: 600px){
+  .card{
+    font-size: 83% !important;
+  }
+  .card a{
+    font-size: 60% !important;
+  }
+  .card td h5{
+    font-size: 13px !important;
+  }
+  .card-elements {
+    width: 300%;
+  }
+
+  .rank_image {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+   h4 {
+    font-size: 15px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+
+}

@@ -44,7 +44,7 @@ class Great < ApplicationRecord
   end
 
   def self.search(search)
-    return Great.all unless search
+    return Great.where(is_release: true) unless search
 
     Great.where('name LIKE(?)', "%#{search}%")
   end

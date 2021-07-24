@@ -5,11 +5,13 @@
         <%= link_to "新規投稿ページへ", new_great_path, class:"btn btn-outline-white bg-white font-weight-bold text-secondary float-right mb-5"%>
       <% end %>
       <% @great_rank.each do |greats| %>
-        <table class="table table-borderless text-black card">
-          <div class="great_rank">
-            <%= render 'users/postscard', greats: greats %><!--ユーザーの投稿一覧をカードにし部分テンプレート化-->
-          </div>
-        </table>
+        <% if greats.is_release == true %>
+          <table class="table table-borderless text-black card">
+            <div class="great_rank">
+              <%= render 'users/postscard', greats: greats %><!--ユーザーの投稿一覧をカードにし部分テンプレート化-->
+            </div>
+          </table>
+        <% end %>
       <% end %>
     </div>
   </div>
