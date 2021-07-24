@@ -4,7 +4,7 @@
       <div class="col-md-4">
         <%= attachment_image_tag @great, :great_image, :fill, 300, 300, fallback:"Unkown_account.jpg", size:'200x200' %>
       </div>
-      <div class="col-md-6 text-nowrap" >
+      <div class="col-md-8 text-nowrap" >
         <table class="table table-borderless text-white">
           <thead>
           <tr>
@@ -36,30 +36,19 @@
             </tr>
           </tbody>
         </table>
-          <table class="table text-white table-borderless">
-          <thead>
-             <tr>
-              <th><h4>ジャンル</h4></th>
-              <th><h4>どんな人におすすめか？</h4></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="text-wrap mt-3 ml-5">
-            <td>
+          <div class="col-md-8 out-tabele mr-3">
+            <h3 class="my-4"><strong>ジャンル</strong></h3>
+            <div>
               <% @great.tags.each do |tag| %>
-                <h4><%= tag.name %></h4>
+                <h4 class="ml-4 m-4"><%= tag.name %></h4>
               <% end %>
-            </td>
-              <td class><h4><%= @great.recommend %><h4></td>
-            </tr>
-          </tbody>
-        </table>
+            </div>
+              <h3 class="my-5">どんな人におすすめか？</h4>
+            <h4 class="recommend-text m-4"><%= @great.recommend %></h4>
         </div>
-
-
-        </div>
+      </div>
         <div class="table table-borderless">
-          <h3 class="text-white">偉業や功績</h3>
+          <h3 class="text-white my-5">偉業や功績</h3>
           <div class="card m-3"><div class="topic-erements m-4"><%= @great.topic %></div></div>
         </div>
         <div class="col-md-5 comment-form mt-5 mb-5">
