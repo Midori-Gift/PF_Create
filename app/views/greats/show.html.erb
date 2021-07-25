@@ -1,8 +1,17 @@
 <div class="container">
   <div class="row  mx-auto mt-5">
     <div class="col-md-12 mx-auto">
-      <div class="col-md-4">
+      <div class="col-md-4 d-flex">
         <%= attachment_image_tag @great, :great_image, :fill, 300, 300, fallback:"Unkown_account.jpg", size:'200x200' %>
+          <div class="mt-5 ml-5 text-nowrap">
+            <% if user_signed_in?%>
+              <% if current_user.admin? %>
+                <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary text-dark" %>
+              <% else %>
+                <%= link_to "編集する", edit_great_path(@great.id), class:"btn btn-outline-secondary bg-light text-dark font-weight-bold"%>
+              <% end %>
+            <% end %>
+          </div>
       </div>
       <div class="col-md-10">
         <table class="table table-borderless text-white">
@@ -25,17 +34,10 @@
               </td>
               <td><h4><%= @great.word %></h4></td>
               <td><h3><%= link_to @great.user.name, user_path(@great.user.id) %></h3></td>
-              <td>
-                <% if user_signed_in?%>
-                  <% if current_user.admin? %>
-                    <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary text-dark" %>
-                  <% else %>
-                    <%= link_to "編集する", edit_great_path(@great.id), class:"btn btn-outline-secondary bg-light text-dark font-weight-bold"%></td>
-                  <% end %>
-                <% end %>
             </tr>
           </tbody>
         </table>
+
           <div class="col-md-8 out-tabele mr-3">
             <h3 class="my-4"><strong>ジャンル</strong></h3>
             <div>
