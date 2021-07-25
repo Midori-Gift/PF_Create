@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-
         <h2 class="mt-4">
         <% if user_signed_in? %>
           <% if current_user.id == @user.id %>
@@ -80,14 +79,12 @@
             </tbody>
           </table>
             <h5>いいねした投稿</h5>
-              <% @users.each do |user| %>
-              <div>
-                <table class="table table-borderless text-black card">
-                  <%= render 'users/favorite', user: user %>
-                </table>
-              <% end %>
-              <h3 class="mt-5 mb-5"><%= paginate @users %></h3>
-            </div>
+              <% @greats.each do |great| %>
+                  <table class="table table-borderless text-black card">
+                    <%= render 'users/favorite', great: great %>
+                  </table>
+                <% end %>
+                <h3 class="mt-5 mb-5"><%= paginate @greats %></h3>
         </div>
       </div>
     </div>

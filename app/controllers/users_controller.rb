@@ -6,8 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @users = @user.favorites.page(params[:page]).per(8).order('updated_at DESC')
-    @greats = Great.all
+    # greats = Great.joins(:favorites).where(is_release: 1).group(:id).order('count(*) desc')
+    @greats = @user.favorited_greats.where(is_release: true).page(params[:page]).per(8)
+
   end
 
   # ユーザーの編集にリンクへの直接入力で入ろうとした場合の振るい分け

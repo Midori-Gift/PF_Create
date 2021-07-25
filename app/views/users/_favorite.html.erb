@@ -10,9 +10,9 @@
 
     <tbody class="card">
       <tr>
-        <td><%= attachment_image_tag user.great, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
-        <td><%= link_to(user.great.name,"/greats/#{user.great.id}") %></td>
-        <td><%= user.great.head %></td>
+        <td><%= attachment_image_tag great, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+        <td><%= link_to(great.name,"/greats/#{great.id}") %></td>
+        <td><%= great.head %></td>
      </tr>
     </tbody>
 </div>
