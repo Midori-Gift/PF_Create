@@ -1,6 +1,6 @@
 # The way of Greate 
   
-  ![Uploading bandicam 2021-07-26 14-41-24-282.jpg…]()
+![bandicam 2021-07-26 14-41-24-282](https://user-images.githubusercontent.com/81542430/126938826-536b700d-ac21-4f94-9c52-14acc377864d.jpg)
 
 
 ## サイト概要
