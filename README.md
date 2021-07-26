@@ -1,4 +1,7 @@
 # The way of Greate 
+  
+  ![Uploading bandicam 2021-07-26 14-41-24-282.jpg…]()
+
 
 ## サイト概要
 
