@@ -61,5 +61,7 @@ https://docs.google.com/spreadsheets/d/1uJiP9K4J5ki75B7jE0g9pBLbPRaEUsJERFRV90Wr
 
 ## 使用素材
 
-※現時点ではありませんが随時追加されていく可能性があります。  
-偉人の画像をお借りするかもしれません。 
+https://commons.wikimedia.org/wiki/File:Drucker5789.jpg 
+https://gahag.net/003300-albert-einstein/ 
+https://commons.wikimedia.org/wiki/File:Noguchi_Hideyo.jpg
+
