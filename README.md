@@ -63,5 +63,5 @@ https://docs.google.com/spreadsheets/d/1uJiP9K4J5ki75B7jE0g9pBLbPRaEUsJERFRV90Wr
 
 https://commons.wikimedia.org/wiki/File:Drucker5789.jpg 
 https://gahag.net/003300-albert-einstein/ 
-https://commons.wikimedia.org/wiki/File:Noguchi_Hideyo.jpg
+https://commons.wikimedia.org/wiki/File:Noguchi_Hideyo.jpg  
 
