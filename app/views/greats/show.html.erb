@@ -6,7 +6,7 @@
           <div class="mt-5 ml-5 text-nowrap">
             <% if user_signed_in?%>
               <% if current_user.admin? %>
-                <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary text-dark" %>
+                <%= link_to "管理者編集", edit_admin_great_path(@great.id), class:"btn btn-outline-secondary bg-light text-dark font-weight-bold" %>
               <% else %>
                 <%= link_to "編集する", edit_great_path(@great.id), class:"btn btn-outline-secondary bg-light text-dark font-weight-bold"%>
               <% end %>
