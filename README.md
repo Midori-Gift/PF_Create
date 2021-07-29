@@ -62,5 +62,14 @@ https://docs.google.com/spreadsheets/d/1uJiP9K4J5ki75B7jE0g9pBLbPRaEUsJERFRV90Wr
 https://commons.wikimedia.org/wiki/File:Drucker5789.jpg   
 https://gahag.net/003300-albert-einstein/  
 https://commons.wikimedia.org/wiki/File:Noguchi_Hideyo.jpg  
+  
+## 課題点 
 
+１．デザイン面
+・メディアクエリが完璧でない。
+
+2.機能面 
+・編集履歴が残らない。 
+・名言が1件しか保存できない。 
+・最初の投稿者がすべての編集をしてきたように見えてしまう。(履歴が残らないため。) 
 
