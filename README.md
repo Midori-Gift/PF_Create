@@ -72,4 +72,4 @@ https://commons.wikimedia.org/wiki/File:Noguchi_Hideyo.jpg
 ・編集履歴が残らない。  
 ・名言が1件しか保存できない。   
 ・最初の投稿者がすべての編集をしてきたように見えてしまう。(履歴が残らないため。)  
-
+・タグ付け機能が微妙
