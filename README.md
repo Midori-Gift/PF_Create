@@ -51,6 +51,7 @@ https://docs.google.com/spreadsheets/d/1uJiP9K4J5ki75B7jE0g9pBLbPRaEUsJERFRV90Wr
   
   
 ・チャレンジ要素以外の挑戦  
+
 -Git Actionを導入し、ローカル環境からのpushを本番環境にも即時反映  
 -ファビコンの設定  
 -ドメイン取得 & HTTPS通信化  
