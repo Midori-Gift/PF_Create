@@ -48,6 +48,13 @@ wikipedia:https://ja.wikipedia.org/wiki/
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1uJiP9K4J5ki75B7jE0g9pBLbPRaEUsJERFRV90WrSZs/edit?usp=sharing  
+  
+  
+-チャレンジ要素以外の挑戦  
+
+・Git Actionを導入、ローカル環境からのpushを本番環境にも即時反映  
+・ファビコンの設定  
+・ドメイン取得 & HTTPS通信化  
 
 ## 開発環境
 
@@ -62,5 +69,14 @@ https://docs.google.com/spreadsheets/d/1uJiP9K4J5ki75B7jE0g9pBLbPRaEUsJERFRV90Wr
 https://commons.wikimedia.org/wiki/File:Drucker5789.jpg   
 https://gahag.net/003300-albert-einstein/  
 https://commons.wikimedia.org/wiki/File:Noguchi_Hideyo.jpg  
+  
+## 課題点 
 
+１．デザイン面  
+・メディアクエリが完璧でない。  
 
+2.機能面  
+・編集履歴が残らない。  
+・名言が1件しか保存できない。   
+・最初の投稿者がすべての編集をしてきたように見えてしまう。(履歴が残らないため。)  
+・タグ付け機能が微妙
