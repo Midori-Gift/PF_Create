@@ -5,6 +5,8 @@
 ## インフラ設計  
 ・インフラ設計書:https://docs.google.com/spreadsheets/d/1nbMjfRt5rJLvEKhZlCjxpfyYOA9dZLcOv12BwVYOCJc/edit?usp=sharing  
 ・AWS構成図  
+  
+    
 ![bandicam 2021-08-09 14-57-24-283](https://user-images.githubusercontent.com/81542430/128665370-97ee4cc0-bbac-4ff9-962a-d74269f607cb.jpg)  
 
 ## サイト概要  
