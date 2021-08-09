@@ -1,4 +1,3 @@
-![bandicam 2021-08-09 15-05-39-201](https://user-images.githubusercontent.com/81542430/128665692-5f61a4e9-a047-4541-ac74-d9f460a4c7d1.jpg)
 # The way of Greate.  
   
 ![bandicam 2021-07-26 14-45-28-007](https://user-images.githubusercontent.com/81542430/126938956-13f7ff0e-911c-48f3-bd90-0281b8eb43f1.jpg)
