@@ -2,7 +2,12 @@
   
 ![bandicam 2021-07-26 14-45-28-007](https://user-images.githubusercontent.com/81542430/126938956-13f7ff0e-911c-48f3-bd90-0281b8eb43f1.jpg)
 
-## サイト概要
+## インフラ設計  
+・インフラ設計書:https://docs.google.com/spreadsheets/d/1nbMjfRt5rJLvEKhZlCjxpfyYOA9dZLcOv12BwVYOCJc/edit?usp=sharing
+・AWS構成図  
+![bandicam 2021-08-09 14-57-24-283](https://user-images.githubusercontent.com/81542430/128665370-97ee4cc0-bbac-4ff9-962a-d74269f607cb.jpg)
+
+## サイト概要  
 
 偉人の言葉、なにかを成し遂げた人の言葉や考えは偉大です。  
 きっとあなたが悩んだときに力になってくれます。  
