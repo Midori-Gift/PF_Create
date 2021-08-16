@@ -1,4 +1,4 @@
-# [The way of Greate.](## https://way-of-great.jp/)
+# [The way of Greate.](https://way-of-great.jp/)
   
 ![bandicam 2021-07-26 14-45-28-007](https://user-images.githubusercontent.com/81542430/126938956-13f7ff0e-911c-48f3-bd90-0281b8eb43f1.jpg)
 
