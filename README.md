@@ -53,10 +53,19 @@ wikipedia:https://ja.wikipedia.org/wiki/
 ・テーブル定義書:https://docs.google.com/spreadsheets/d/1P1F0He2v1xRp11q9aJNNUmWC2K9revX4jw9LN44yG1c/edit?usp=sharing  
 ・アプリケーション詳細設計書:https://docs.google.com/spreadsheets/d/1odBx_Ifc7_QWoGOhMXxFKFfDWKERnaP_OZzZ-Atcf3w/edit?usp=sharing  
 
+## 機能面
+・CRUD  
+・ログイン
+・いいね機能  
+・フォロー機能  
+・コメント機能  
+・検索機能  
+
+※これら以外は下記のチャレンジ要素一覧リンクにまとめておきます。
+  ↓↓↓↓↓
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1uJiP9K4J5ki75B7jE0g9pBLbPRaEUsJERFRV90WrSZs/edit?usp=sharing  
-  
-  
+
 -チャレンジ要素以外の挑戦  
 
 ・Git Actionを導入、ローカル環境からのpushを本番環境にも即時反映  
