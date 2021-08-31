@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes#about'
 
   # ユーザー機能のルーティング
-  resources :users, only: [:index, :show, :edit, :update,]
+  resources :users, only: [:show, :edit, :update,]
 
   # ユーザーの投稿一覧
   get 'users/:id/post' => 'users#posts', as: 'user_post'
@@ -20,16 +20,12 @@ Rails.application.routes.draw do
   get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
   get 'user/:id/hide' => 'users#hide', as: 'user_hide'
   patch 'users/:id/hide' => 'users#hide'
-  put 'users/:id/hide' => 'users#hide'
 
   # フォロー機能用ルーティング一覧
-  resources :users do
-    member do
-      get :following, :followers
-    end
-    delete "relationships" => 'relationships#destroy'
-    resources :relationships, only: [:create]
-  end
+  get 'users/:id/following' => 'users#following', as: 'following_user'
+  get 'users/:id/followers' => 'users#followers', as: 'followers_user'
+  delete 'users/:id/relationships' => 'relationships#destroy', as: 'user_relationships'
+  post 'users/:id/relationships' => 'relationships#create'
 
   # 管理者用ルーティング一覧
   namespace :admin do
