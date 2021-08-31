@@ -1,8 +1,15 @@
-# The way of Greate.  
+# [The way of Greate.](https://way-of-great.jp/)
   
 ![bandicam 2021-07-26 14-45-28-007](https://user-images.githubusercontent.com/81542430/126938956-13f7ff0e-911c-48f3-bd90-0281b8eb43f1.jpg)
 
-## サイト概要
+## インフラ設計  
+・インフラ設計書:https://docs.google.com/spreadsheets/d/1nbMjfRt5rJLvEKhZlCjxpfyYOA9dZLcOv12BwVYOCJc/edit?usp=sharing  
+  
+・AWS構成図  
+  
+![bandicam 2021-08-09 15-05-39-201](https://user-images.githubusercontent.com/81542430/128665709-179baef8-f14d-4a4d-9fa9-280cdc877489.jpg)  
+  
+## サイト概要  
 
 偉人の言葉、なにかを成し遂げた人の言葉や考えは偉大です。  
 きっとあなたが悩んだときに力になってくれます。  
