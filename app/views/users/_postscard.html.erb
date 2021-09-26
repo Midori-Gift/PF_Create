@@ -1,23 +1,24 @@
 
-<thead>
-  <tr>
-    <th></th>
-    <th>偉人名</th>
-    <th>ジャンル</th>
-    <th>見出し</th>
-    <th></th>
-  </tr>
-</thead>
+
 <div class="great_rank">
   <tbody class="card">
     <tr>
       <td><%= attachment_image_tag greats, :great_image, :fill, 100, 100, fallback:"Unkown_account.jpg" %></td>
+      
+      <th>偉人名</th>
+      
       <td><%= link_to greats.name, great_path(greats.id) %></td>
+      
+      <th>ジャンル</th>
+      
         <td>
           <% greats.tags.each do |tag| %>
             <%= tag.name %></br>
           <% end %>
         </td>
+        
+        <th>見出し</th>
+        
       <td><%= greats.head %></td>
       <td>
         <h3>

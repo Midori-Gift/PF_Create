@@ -3,19 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-@media(max-width: 365px) {
- .card img{
-   height: 50px;
-   width: 60px;
- }
+@media(max-width: 480px) {
+  
+  div h1 {
+    font-size: 25px;
+  }
+   .card img{
+     height: 80px;
+     width: 80px;
+   }
 
- .card {
-   height: 200px;
-   width: 30px;
- }
 }
 
-.card a {
-  height: 20px;
-  width: 20px;
-}
+
+

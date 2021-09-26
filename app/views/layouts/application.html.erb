@@ -25,7 +25,7 @@
           </div>
           <div class="tag-search">
             <%= form_with url: greats_path, method: :get, class:"" do %>
-            <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+            <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name),
               {prompt: 'タグ検索',class:'form-control', onchange: 'submit(this.form);'}%>
             <% end %>
           </div>
@@ -59,7 +59,7 @@
       </div>
     </div>
   </nav>
-</header>
+</header><%= select_tag "people", options_from_collection_for_select(Tag.all, "id", "name",), class:''%>
   <h4 class="mt-5 ml-5 alert-secondary bg-white float-left">
     <%= flash[:notice] %>
   </h4>

@@ -29,14 +29,20 @@ class Great < ApplicationRecord
   end
 
   def save_tags(savegreat_tags)
+    
+    # 既存タグを配列として取得、unless文でnil出ないことを確認
     current_tags = tags.pluck(:name) unless tags.nil?
+    
+    # 古いタグと新しいタグを既存タグとの引き算で表現
     old_tags = current_tags - savegreat_tags
     new_tags = savegreat_tags - current_tags
-
+    
+    # 古いタグを一つずつ取得し、すでにTag内に存在しているのであれば削除
     old_tags.each do |old_name|
       tags.delete Tag.find_by(name: old_name)
     end
-
+    
+    # 新しいタグを1件ずつ作成、tagに追加していく(戻り値)
     new_tags.each do |new_name|
       great_tag = Tag.find_or_create_by!(name: new_name)
       tags << great_tag

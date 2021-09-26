@@ -53,6 +53,13 @@ body {
   background-image: image-url("test4.jpg");
 }
 
+@media(max-width: 480px){
+  #image-slider{
+  height: 250px;
+  background-position: center;
+}
+}
+
 // td {
 //   background-color: #000000;
 // }

@@ -34,20 +34,26 @@
                 <td><h2>注目の偉人</h2></td>
             </tr>
         </table>
-        <div class="col-md-6 col-xs-6 d-flex mx-auto card-elements">
-         <% @great_rank.each do |greats| %>
-                <%= link_to great_path(greats.id) do %>
-                    <div class="card mt-5 m-3" style="width: 11rem;">
+        <div class="col-md-8 mx-auto card-elements">
 
-                        <text class="rank-image m-2" fill="#dee2e6" dy=".3em" x="50%" y="50%"><%= attachment_image_tag greats, :great_image, :fill, 100, 100 %></text>
-                        <div class="card-body ">
-                            <h5 class="card-title border-bottom"><%= greats.name %></h5><h3 class="card-title text-danger border-bottom">♥<%= greats.favorites.count%></h3>
-                        <p class="card-text"><%= greats.head %></p>
+            <% @great_rank.each do |greats| %>
+                 <%= link_to great_path(greats.id) do %>
+
+                     <div class="card mt-5 m-3 d-flex" style="width: 18rem;">
+                        <text class="rank-image m-2 d-flex" fill="#dee2e6" dy=".3em" x="50%" y="50%"><%= attachment_image_tag greats, :great_image, :fill, 100, 100 %></text>
+                        <div class="card-body">
+                            <h5 class="card-title border-bottom"><%= greats.name %></h5><h3 class="text-danger">♥<%= greats.favorites.count%></h3>
+                            <p class="card-text"><%= greats.head %></p>
                         </div>
                     </div>
+
                 <% end %>
             <% end %>
+
             </div>
         </div>
+
+
+
+        </div>
     </div>
-</div>
