@@ -28,7 +28,7 @@ $(function() {
 });
  });
 
- $(document).ready(function () {
+$(document).on('turbolinks:load', function() {
   $("#theTarget").skippr({
     // スライドショーの変化 ("fade" or "slide")
     transition : 'fade',
