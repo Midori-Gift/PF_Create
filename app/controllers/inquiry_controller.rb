@@ -3,21 +3,21 @@
 class InquiryController < ApplicationController
   def index
     @inquiry = Inquiry.new
-    render action: 'index'
+    render 'index'
   end
 
   def confirm
     @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))
     if @inquiry.valid?
-      render action: 'confirm'
+      render 'confirm'
     else
-      render action: 'index'
+      render 'index'
     end
   end
 
   def thanks
     @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))
     InquiryMailer.received_email(@inquiry).deliver
-    render action: 'thanks'
+    render 'thanks'
   end
 end
